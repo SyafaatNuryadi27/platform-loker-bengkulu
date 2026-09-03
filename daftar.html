@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daftar | Loker Bengkulu</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{
+  background:#f4f7fb;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+  padding:20px;
+}
+.card{
+  width:100%;
+  max-width:400px;
+  background:#fff;
+  padding:28px;
+  border-radius:18px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+h1{text-align:center;color:#111827}
+p{text-align:center;color:#64748b;margin:8px 0 24px}
+input,select{
+  width:100%;
+  padding:13px;
+  margin-bottom:14px;
+  border:1px solid #d1d5db;
+  border-radius:10px;
+  outline:none;
+}
+button{
+  width:100%;
+  padding:13px;
+  border:none;
+  border-radius:10px;
+  font-weight:bold;
+  cursor:pointer;
+}
+.btn{
+  background:#2563eb;
+  color:#fff;
+}
+.btn:hover{background:#1d4ed8}
+.divider{
+  display:flex;
+  align-items:center;
+  margin:18px 0;
+  color:#9ca3af;
+  font-size:13px;
+}
+.divider::before,.divider::after{
+  content:"";
+  flex:1;
+  height:1px;
+  background:#e5e7eb;
+}
+.divider span{margin:0 10px}
+.google{
+  background:#fff;
+  border:1px solid #d1d5db;
+  color:#111827;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+}
+.google:hover{background:#f9fafb}
+#msg{
+  text-align:center;
+  color:#16a34a;
+  margin-top:12px;
+}
+.link{
+  text-align:center;
+  margin-top:18px;
+  font-size:14px;
+}
+a{
+  color:#2563eb;
+  text-decoration:none;
+  font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <h1>Buat Akun</h1>
+  <p>Daftar sebagai Pelamar atau Perusahaan</p>
+
+  <form id="registerForm">
+    <input type="text" placeholder="Nama Lengkap" required>
+    <input type="email" placeholder="Email" required>
+    <input type="tel" placeholder="Nomor WhatsApp" required>
+
+    <select required>
+      <option value="">Pilih Jenis Akun</option>
+      <option value="pelamar">Pelamar</option>
+      <option value="perusahaan">Perusahaan</option>
+    </select>
+
+    <input type="password" placeholder="Password" required>
+
+    <button type="submit" class="btn">Daftar</button>
+  </form>
+
+  <div class="divider"><span>ATAU</span></div>
+
+  <button id="googleRegister" class="google">
+    <svg width="20" height="20" viewBox="0 0 48 48">
+      <path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.6 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12S17.4 12 24 12c3 0 5.8 1.1 7.9 2.9l5.7-5.7C34.1 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.2-.1-2.3-.4-3.5z"/>
+      <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3 0 5.8 1.1 7.9 2.9l5.7-5.7C34.1 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/>
+      <path fill="#4CAF50" d="M24 44c5.2 0 10-2 13.5-5.3l-6.2-5.2C29.3 35.1 26.8 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.6 5.1C9.5 39.6 16.2 44 24 44z"/>
+      <path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-1.1 3.1-3.3 5.5-6.2 7.1l6.2 5.2C39.2 36.7 44 30.8 44 24c0-1.2-.1-2.3-.4-3.5z"/>
+    </svg>
+    Daftar dengan Google
+  </button>
+
+  <div id="msg"></div>
+
+  <div class="link">
+    Sudah punya akun?
+    <a href="login.html">Login</a>
+  </div>
+</div>
+
+<script type="module">
+import { registerEmail, signInWithGoogle } from "./firebase.js";
+
+const form = document.getElementById("registerForm");
+const msg = document.getElementById("msg");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  msg.innerText = "Memproses pendaftaran...";
+  msg.style.color = "#2563eb";
+
+  // Mengambil nilai input dari form
+  const inputs = form.querySelectorAll("input");
+  const email = inputs[1].value;
+  const password = inputs[3].value;
+
+  try {
+    await registerEmail(email, password);
+    msg.style.color = "#16a34a";
+    msg.innerText = "Pendaftaran berhasil! Mengalihkan...";
+    setTimeout(() => {
+      window.location.href = "index.html";
+    }, 1500);
+  } catch (err) {
+    msg.style.color = "#dc2626";
+    if (err.code === "auth/email-already-in-use") {
+      msg.innerText = "Email sudah terdaftar!";
+    } else if (err.code === "auth/weak-password") {
+      msg.innerText = "Password minimal 6 karakter!";
+    } else {
+      msg.innerText = "Gagal mendaftar: " + err.message;
+    }
+  }
+});
+
+document.getElementById("googleRegister").addEventListener("click", async () => {
+  try {
+    await signInWithGoogle();
+    window.location.href = "index.html";
+  } catch (err) {
+    msg.style.color = "#dc2626";
+    msg.innerText = "Pendaftaran Google dibatalkan";
+  }
+});
+</script>
+
+
+</body>
+</html>
