@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /pasang-loker.html
+Allow: /pasang-biodata.html
+Allow: /login.html
+Allow: /daftar.html
+
+# Mengizinkan perayapan aset statis
+Allow: /assets/
+
+# Lokasi Sitemap
+Sitemap: https://lokerbengkulu.my.id/sitemap.xml
