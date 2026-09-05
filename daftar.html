@@ -311,40 +311,6 @@
             background: var(--brand-600);
         }
 
-        .btn-google {
-            background: white;
-            border-color: var(--slate-200);
-            color: var(--slate-700);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .btn-google:hover {
-            background: var(--slate-50);
-            border-color: var(--slate-300);
-        }
-
-        /* DIVIDER */
-        .divider {
-            display: flex;
-            align-items: center;
-            margin: 1.25rem 0;
-            color: var(--slate-400);
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-
-        .divider::before, .divider::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background: var(--slate-200);
-        }
-
-        .divider span {
-            padding: 0 0.75rem;
-        }
-
         /* FEEDBACK MESSAGE */
         #msg {
             text-align: center;
@@ -483,18 +449,6 @@
                 </button>
             </form>
 
-            <div class="divider"><span>ATAU DAFTAR DENGAN</span></div>
-
-            <button id="googleRegister" class="btn btn-google" aria-label="Daftar Menggunakan Akun Google">
-                <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true">
-                    <path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.6 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12S17.4 12 24 12c3 0 5.8 1.1 7.9 2.9l5.7-5.7C34.1 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.2-.1-2.3-.4-3.5z"/>
-                    <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3 0 5.8 1.1 7.9 2.9l5.7-5.7C34.1 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/>
-                    <path fill="#4CAF50" d="M24 44c5.2 0 10-2 13.5-5.3l-6.2-5.2C29.3 35.1 26.8 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.6 5.1C9.5 39.6 16.2 44 24 44z"/>
-                    <path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-1.1 3.1-3.3 5.5-6.2 7.1l6.2 5.2C39.2 36.7 44 30.8 44 24c0-1.2-.1-2.3-.4-3.5z"/>
-                </svg>
-                Google
-            </button>
-
             <div id="msg" role="alert"></div>
 
             <div class="auth-footer">
@@ -509,8 +463,8 @@
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
-        import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
-        import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
+        import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
         // Konfigurasi Firebase
         const firebaseConfig = {
@@ -526,7 +480,6 @@
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const db = getFirestore(app);
-        const googleProvider = new GoogleAuthProvider();
 
         const form = document.getElementById("registerForm");
         const msg = document.getElementById("msg");
@@ -639,71 +592,6 @@
                     showMessage("Format email tidak valid!", "error");
                 } else {
                     showMessage("Gagal mendaftar: " + (err.message || "Terjadi kesalahan"), "error");
-                }
-            }
-        });
-
-        // Google Sign Up
-        document.getElementById("googleRegister").addEventListener("click", async () => {
-            try {
-                const userCredential = await signInWithPopup(auth, googleProvider);
-                const user = userCredential.user;
-
-                if (user) {
-                    const userDocRef = doc(db, "users", user.uid);
-                    const userDoc = await getDoc(userDocRef);
-
-                    // Jika pengguna baru (belum ada data di Firestore)
-                    if (!userDoc.exists()) {
-                        const { value: formValues } = await Swal.fire({
-                            title: 'Lengkapi Profil Anda',
-                            html:
-                                '<label style="display:block; text-align:left; font-size:12px; font-weight:bold; margin-bottom:4px;">Jenis Akun:</label>' +
-                                '<select id="swal-role" class="swal2-input" style="width:100%; margin-top:0; margin-bottom:15px;">' +
-                                '<option value="pelamar">Pelamar / Pencari Kerja</option>' +
-                                '<option value="perusahaan">Pemberi Kerja / Perusahaan</option>' +
-                                '</select>' +
-                                '<label style="display:block; text-align:left; font-size:12px; font-weight:bold; margin-bottom:4px;">Nomor WhatsApp:</label>' +
-                                '<input id="swal-wa" class="swal2-input" placeholder="081234567890" style="width:100%; margin-top:0;">',
-                            focusConfirm: false,
-                            allowOutsideClick: false,
-                            confirmButtonText: 'Simpan & Lanjutkan',
-                            confirmButtonColor: '#4f46e5',
-                            preConfirm: () => {
-                                const waVal = document.getElementById('swal-wa').value.trim();
-                                if (!waVal) {
-                                    Swal.showValidationMessage('Harap masukkan nomor WhatsApp');
-                                    return false;
-                                }
-                                return {
-                                    role: document.getElementById('swal-role').value,
-                                    whatsapp: formatWhatsappNumber(waVal)
-                                };
-                            }
-                        });
-
-                        await setDoc(userDocRef, {
-                            uid: user.uid,
-                            nama: user.displayName || 'Pengguna Baru',
-                            email: user.email,
-                            whatsapp: formValues ? formValues.whatsapp : '',
-                            role: formValues ? formValues.role : 'pelamar',
-                            createdAt: new Date().toISOString()
-                        });
-                    }
-                }
-
-                // Pelacakan Event Pendaftaran Google Berhasil di Google Analytics
-                if (typeof gtag === 'function') {
-                    gtag('event', 'sign_up', {
-                        'method': 'Google'
-                    });
-                }
-
-                window.location.href = "index.html";
-            } catch (err) {
-                if (err.code !== "auth/popup-closed-by-user") {
-                    showMessage("Pendaftaran melalui Google dibatalkan atau gagal.", "error");
                 }
             }
         });
