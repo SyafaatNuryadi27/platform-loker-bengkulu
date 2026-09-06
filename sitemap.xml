@@ -3,14 +3,30 @@
   <!-- Halaman Utama (Beranda) -->
   <url>
     <loc>https://lokerbengkulu.my.id/</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
     <loc>https://lokerbengkulu.my.id/index.html</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Halaman Pencari Kerja -->
+  <url>
+    <loc>https://lokerbengkulu.my.id/pencari-kerja.html</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Halaman Pemberi Kerja -->
+  <url>
+    <loc>https://lokerbengkulu.my.id/pemberi-kerja.html</loc>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
@@ -18,7 +34,7 @@
   <!-- Halaman Pasang Lowongan Kerja -->
   <url>
     <loc>https://lokerbengkulu.my.id/pasang-loker.html</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -26,7 +42,7 @@
   <!-- Halaman Pasang Biodata Pelamar -->
   <url>
     <loc>https://lokerbengkulu.my.id/pasang-biodata.html</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -34,14 +50,14 @@
   <!-- Halaman Autentikasi -->
   <url>
     <loc>https://lokerbengkulu.my.id/login.html</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <url>
     <loc>https://lokerbengkulu.my.id/daftar.html</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
