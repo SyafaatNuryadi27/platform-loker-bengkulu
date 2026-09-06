@@ -1,6 +1,8 @@
 User-agent: *
 Allow: /
 Allow: /index.html
+Allow: /pencari-kerja.html
+Allow: /pemberi-kerja.html
 Allow: /pasang-loker.html
 Allow: /pasang-biodata.html
 Allow: /login.html
@@ -11,3 +13,4 @@ Allow: /assets/
 
 # Lokasi Sitemap
 Sitemap: https://lokerbengkulu.my.id/sitemap.xml
+
