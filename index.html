@@ -567,8 +567,11 @@
         const auth = getAuth(app);
         const db = getFirestore(app);
 
+        let currentUser = null;
+
         // Dynamic Auth State
         onAuthStateChanged(auth, (user) => {
+            currentUser = user;
             const authButtons = document.getElementById('auth-buttons');
             const userProfileMenu = document.getElementById('user-profile-menu');
             const userEmail = document.getElementById('userEmail');
@@ -581,6 +584,32 @@
                 authButtons.style.display = 'flex';
                 userProfileMenu.classList.remove('active');
             }
+        });
+
+        // Protected Links Interceptor (Cari Lowongan Kerja & Cari Kandidat Pekerja)
+        const protectedLinks = document.querySelectorAll('a[href="pencari-kerja.html"], a[href="pemberi-kerja.html"]');
+        protectedLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (!currentUser) {
+                    e.preventDefault();
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Login Diperlukan',
+                        text: 'Silakan masuk atau daftar terlebih dahulu untuk mengakses halaman pencarian.',
+                        showCancelButton: true,
+                        confirmButtonText: 'Masuk',
+                        cancelButtonText: 'Daftar',
+                        confirmButtonColor: '#4f46e5',
+                        cancelButtonColor: '#64748b'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = 'login.html';
+                        } else if (result.dismiss === Swal.DismissReason.cancel) {
+                            window.location.href = 'daftar.html';
+                        }
+                    });
+                }
+            });
         });
 
         // User Dropdown Event Listener
