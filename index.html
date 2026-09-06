@@ -22,12 +22,55 @@
     <meta name="keywords" content="loker bengkulu, lowongan kerja bengkulu, cari kerja bengkulu, info loker bengkulu, portal karir bengkulu, bengkulu job portal">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://lokerbengkulu.my.id/">
+    <meta name="theme-color" content="#4f46e5">
 
     <!-- OPEN GRAPH -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://lokerbengkulu.my.id/">
     <meta property="og:title" content="Loker Bengkulu - Portal Karir Digital Provinsi Bengkulu">
     <meta property="og:description" content="Temukan puluhan lowongan kerja aktif atau pasang loker gratis di Bengkulu secara transparan dan mudah.">
+    <meta property="og:site_name" content="Loker Bengkulu">
+
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Loker Bengkulu - Portal Karir Digital Provinsi Bengkulu">
+    <meta name="twitter:description" content="Temukan puluhan lowongan kerja aktif atau pasang loker gratis di Bengkulu secara transparan dan mudah.">
+
+    <!-- STRUCTURED DATA SCHEMA.ORG (JSON-LD) UNTUK GOOGLE -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Loker Bengkulu",
+      "alternateName": ["Portal Loker Bengkulu", "Lowongan Kerja Bengkulu Resmi"],
+      "url": "https://lokerbengkulu.my.id/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://lokerbengkulu.my.id/pencari-kerja.html?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Loker Bengkulu",
+      "url": "https://lokerbengkulu.my.id/",
+      "logo": "https://lokerbengkulu.my.id/favicon.ico",
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Bengkulu"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bengkulu",
+        "addressRegion": "Bengkulu",
+        "addressCountry": "ID"
+      }
+    }
+    </script>
     
     <!-- Google Fonts & Font Awesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -136,22 +179,31 @@
         .nav-right {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.5rem;
+        }
+
+        .auth-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            flex-shrink: 0;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
-            padding: 0.6rem 1.2rem;
+            gap: 0.35rem;
+            padding: 0.42rem 0.85rem;
             border-radius: var(--radius-sm);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
             text-decoration: none;
             border: 1px solid transparent;
             cursor: pointer;
             transition: all 0.2s ease;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .btn-outline {
@@ -162,6 +214,7 @@
 
         .btn-outline:hover {
             background: var(--slate-100);
+            border-color: var(--slate-400);
         }
 
         .btn-primary {
@@ -190,7 +243,7 @@
             padding: 0.4rem 0.85rem;
             border-radius: 99px;
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--slate-800);
             cursor: pointer;
             display: flex;
@@ -219,7 +272,7 @@
 
         .dropdown-item {
             padding: 0.8rem 1rem;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             color: var(--slate-700);
             text-decoration: none;
             display: flex;
@@ -402,14 +455,20 @@
             </a>
 
             <nav class="nav-right" aria-label="Menu Navigasi Akun">
-                <div id="auth-buttons" style="display: flex; gap: 0.5rem;">
-                    <a href="login.html" class="btn btn-outline">Masuk</a>
-                    <a href="https://syafaatnuryadi27.github.io/daftar-lokerbengkulu.my.id/" class="btn btn-primary">Daftar</a>
+                <!-- TOMBOL MASUK & DAFTAR -->
+                <div id="auth-buttons" class="auth-actions">
+                    <a href="login.html" class="btn btn-outline">
+                        <i class="fa-solid fa-right-to-bracket text-xs"></i> Masuk
+                    </a>
+                    <a href="daftar.html" class="btn btn-primary">
+                        <i class="fa-solid fa-user-plus text-xs"></i> Daftar
+                    </a>
                 </div>
 
+                <!-- MENU AKUN SETELAH LOGIN -->
                 <div class="user-menu" id="user-profile-menu">
                     <button class="user-btn" id="btnUserMenu" aria-label="Menu Pengguna">
-                        <i class="fa-solid fa-circle-user" style="color: var(--brand-500); font-size: 1.1rem;"></i>
+                        <i class="fa-solid fa-circle-user" style="color: var(--brand-500); font-size: 1.05rem;"></i>
                         <span id="userEmail">Akun</span>
                         <i class="fa-solid fa-chevron-down text-xs" style="color: var(--slate-400);"></i>
                     </button>
