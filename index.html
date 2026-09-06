@@ -13,54 +13,27 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-Z702HVXL1Y');
     </script>
 
     <!-- SEO METADATA DASAR -->
     <title>Loker Bengkulu - Portal Lowongan Kerja & Pencari Kerja Resmi Bengkulu</title>
     <meta name="description" content="Portal resmi ketenagakerjaan Provinsi Bengkulu. Temukan info lowongan kerja (loker) terbaru, pasang iklan lowongan, atau temukan kandidat pekerja profesional gratis.">
-    <meta name="keywords" content="loker bengkulu, lowongan kerja bengkulu, cari kerja bengkulu, info loker bengkulu, portal karir bengkulu, bengkulu job portal, loker, Indonesia, butuh kerja, kerja, ngangur.">
+    <meta name="keywords" content="loker bengkulu, lowongan kerja bengkulu, cari kerja bengkulu, info loker bengkulu, portal karir bengkulu, bengkulu job portal">
     <meta name="robots" content="index, follow">
-    <meta name="author" content="Loker Bengkulu">
     <link rel="canonical" href="https://lokerbengkulu.my.id/">
 
-    <!-- OPEN GRAPH (UNTUK WHATSAPP, FACEBOOK, LINKEDIN) -->
+    <!-- OPEN GRAPH -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://lokerbengkulu.my.id/">
     <meta property="og:title" content="Loker Bengkulu - Portal Karir Digital Provinsi Bengkulu">
     <meta property="og:description" content="Temukan puluhan lowongan kerja aktif atau pasang loker gratis di Bengkulu secara transparan dan mudah.">
-    <meta property="og:image" content="https://lokerbengkulu.my.id/assets/images/og-image.jpg">
-    <!-- TWITTER CARD -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Loker Bengkulu - Portal Lowongan Kerja Bengkulu">
-    <meta name="twitter:description" content="Hubungkan potensi lokal Bengkulu dengan lapangan kerja terbaik secara gratis dan mudah.">
-    <meta name="twitter:image" content="https://lokerbengkulu.my.id/assets/images/og-image.jpg">
-
-    <!-- JSON-LD STRUCTURED DATA (SCHEMA.ORG) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Loker Bengkulu",
-      "url": "https://lokerbengkulu.my.id/",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://lokerbengkulu.my.id/?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    }
-    </script>
     
     <!-- Google Fonts & Font Awesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="favicon.png">
-
     
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -103,7 +76,7 @@
             background-color: #f8fafc;
             color: var(--slate-800);
             line-height: 1.5;
-            padding-bottom: 75px;
+            padding-bottom: 40px;
         }
 
         /* HEADER & NAVBAR */
@@ -310,7 +283,7 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 1rem;
             max-width: 800px;
-            margin: -2rem auto 2rem;
+            margin: -2rem auto 2.5rem;
             padding: 0 1rem;
             position: relative;
             z-index: 10;
@@ -341,20 +314,20 @@
         main {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 0 1rem 2rem;
+            padding: 0 1rem 3rem;
         }
 
         /* CHOICE CARDS */
         .choice-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.25rem;
+            gap: 1.5rem;
         }
 
         .choice-card {
             background: white;
             border-radius: var(--radius-md);
-            padding: 1.75rem 1.5rem;
+            padding: 2rem 1.5rem;
             box-shadow: var(--shadow-sm);
             border: 1px solid var(--slate-200);
             display: flex;
@@ -370,273 +343,39 @@
         }
 
         .choice-icon {
-            width: 56px;
-            height: 56px;
+            width: 60px;
+            height: 60px;
             border-radius: var(--radius-md);
             background: var(--brand-50);
             color: var(--brand-500);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            margin-bottom: 1.2rem;
         }
 
         .choice-card h2 {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             font-weight: 700;
             color: var(--slate-900);
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.5rem;
         }
 
         .choice-card p {
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             color: var(--slate-600);
-            margin-bottom: 1.25rem;
+            margin-bottom: 1.5rem;
         }
 
         .card-actions {
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 0.6rem;
-        }
-
-        /* CONTENT SECTIONS */
-        .content-section {
-            display: none;
-            animation: fadeIn 0.25s ease-out;
-        }
-
-        .content-section.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(6px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* SEARCH BAR & FILTERS */
-        .search-container {
-            background: white;
-            padding: 1rem;
-            border-radius: var(--radius-md);
-            border: 1px solid var(--slate-200);
-            margin-bottom: 1.25rem;
-            box-shadow: var(--shadow-sm);
-            display: flex;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-        }
-
-        .search-box {
-            flex: 1;
-            min-width: 200px;
-            position: relative;
-        }
-
-        .search-box i {
-            position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--slate-400);
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 0.65rem 1rem 0.65rem 2.5rem;
-            border: 1px solid var(--slate-200);
-            border-radius: var(--radius-sm);
-            outline: none;
-            font-size: 0.85rem;
-        }
-
-        .search-input:focus {
-            border-color: var(--brand-500);
-        }
-
-        .section-header-flex {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .section-title {
-            font-size: 1.1rem;
-            font-weight: 800;
-            color: var(--slate-900);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        /* JOB & CANDIDATE CARDS */
-        .job-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1rem;
-        }
-
-        .job-card {
-            background: white;
-            border: 1px solid var(--slate-200);
-            border-radius: var(--radius-md);
-            padding: 1.25rem;
-            box-shadow: var(--shadow-sm);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: all 0.2s ease;
-        }
-
-        .job-card:hover {
-            border-color: var(--brand-500);
-            box-shadow: var(--shadow-md);
-        }
-
-        .job-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.75rem;
-        }
-
-        .job-badge {
-            font-size: 0.7rem;
-            font-weight: 700;
-            padding: 0.25rem 0.6rem;
-            border-radius: 6px;
-            background: var(--brand-50);
-            color: var(--brand-500);
-            text-transform: uppercase;
-        }
-
-        .job-title {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--slate-900);
-            margin-bottom: 0.2rem;
-        }
-
-        .job-company {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--slate-600);
-            margin-bottom: 1rem;
-        }
-
-        .job-info {
-            display: flex;
-            flex-direction: column;
-            gap: 0.4rem;
-            background: var(--slate-50);
-            padding: 0.75rem;
-            border-radius: var(--radius-sm);
-            margin-bottom: 1rem;
-            font-size: 0.8rem;
-            color: var(--slate-700);
-        }
-
-        .job-info div {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn-apply {
-            background: #25d366;
-            color: white;
-            border: none;
-            padding: 0.65rem;
-            border-radius: var(--radius-sm);
-            font-weight: 700;
-            font-size: 0.85rem;
-            cursor: pointer;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            text-decoration: none;
-            box-shadow: 0 2px 6px rgba(37, 211, 102, 0.2);
-            transition: background 0.2s;
-        }
-
-        .btn-apply:hover {
-            background: #1ebc57;
-        }
-
-        /* EMPTY STATE */
-        .empty-state {
-            text-align: center;
-            padding: 3rem 1rem;
-            background: white;
-            border-radius: var(--radius-md);
-            border: 1px solid var(--slate-200);
-            grid-column: 1 / -1;
-        }
-
-        .empty-state i {
-            font-size: 2.5rem;
-            color: var(--slate-300);
-            margin-bottom: 0.75rem;
-        }
-
-        .empty-state h3 {
-            font-size: 1rem;
-            color: var(--slate-700);
-            margin-bottom: 0.25rem;
-        }
-
-        .empty-state p {
-            font-size: 0.8rem;
-            color: var(--slate-400);
-        }
-
-        /* BOTTOM NAVIGATION (MOBILE) */
-        .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: white;
-            border-top: 1px solid var(--slate-200);
-            display: flex;
-            justify-content: space-around;
-            padding: 0.5rem 0;
-            z-index: 200;
-            box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
-        }
-
-        .nav-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.2rem;
-            color: var(--slate-400);
-            text-decoration: none;
-            font-size: 0.7rem;
-            font-weight: 600;
-            background: none;
-            border: none;
-            cursor: pointer;
-            width: 25%;
-        }
-
-        .nav-item i {
-            font-size: 1.2rem;
-        }
-
-        .nav-item.active {
-            color: var(--brand-500);
+            gap: 0.7rem;
         }
 
         @media (min-width: 769px) {
-            .bottom-nav { display: none; }
-            body { padding-bottom: 0; }
             .app-hero h1 { font-size: 2.3rem; }
             .stat-number { font-size: 1.5rem; }
             .stat-label { font-size: 0.85rem; }
@@ -647,6 +386,8 @@
             padding: 2rem 1rem;
             font-size: 0.8rem;
             color: var(--slate-400);
+            border-top: 1px solid var(--slate-200);
+            margin-top: 2rem;
         }
     </style>
 </head>
@@ -655,7 +396,7 @@
     <!-- TOP HEADER NAVBAR -->
     <header>
         <div class="container navbar">
-            <a href="#" class="logo" id="logoLink" aria-label="Loker Bengkulu - Beranda">
+            <a href="index.html" class="logo">
                 <div class="logo-icon"><i class="fa-solid fa-briefcase"></i></div>
                 <div class="logo-text">loker<span>bengkulu</span></div>
             </a>
@@ -673,8 +414,8 @@
                         <i class="fa-solid fa-chevron-down text-xs" style="color: var(--slate-400);"></i>
                     </button>
                     <div class="user-dropdown" id="userDropdown">
-                        <a href="formulirPasangLoker.html" class="dropdown-item"><i class="fa-solid fa-bullhorn"></i> Pasang Loker</a>
-                        <a href="FormulirBiodata.html" class="dropdown-item"><i class="fa-solid fa-id-card"></i> Buat Biodata</a>
+                        <a href="pasang-loker.html" class="dropdown-item"><i class="fa-solid fa-bullhorn"></i> Pasang Loker</a>
+                        <a href="pasang-biodata.html" class="dropdown-item"><i class="fa-solid fa-id-card"></i> Buat Biodata</a>
                         <div class="dropdown-item logout" id="btnLogout">
                             <i class="fa-solid fa-right-from-bracket"></i> Keluar
                         </div>
@@ -709,123 +450,51 @@
         </div>
     </section>
 
-    <!-- MAIN CONTAINER -->
+    <!-- MAIN CONTAINER - PORTAL HUB -->
     <main>
-        <!-- DASHBOARD UTAMA -->
-        <section id="main-choices" class="content-section active">
-            <div class="choice-grid">
-                <!-- KARTU PENCARI KERJA -->
-                <article class="choice-card">
-                    <div class="choice-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
-                    <h2>Pencari Kerja</h2>
-                    <p>Temukan puluhan lowongan kerja aktif di Bengkulu atau daftarkan profil Anda agar dilirik perusahaan.</p>
-                    <div class="card-actions">
-                        <button class="btn btn-primary" id="btnOpenLowongan">
-                            <i class="fa-solid fa-search"></i> Cari Lowongan
-                        </button>
-                        <a href="pasang-biodata.html" class="btn btn-outline">
-                            <i class="fa-solid fa-id-card"></i> Buat Biodata
-                        </a>
-                    </div>
-                </article>
-
-                <!-- KARTU PEMBERI KERJA -->
-                <article class="choice-card">
-                    <div class="choice-icon" style="background: #ecfdf5; color: var(--emerald-600);"><i class="fa-solid fa-building"></i></div>
-                    <h2>Pemberi Kerja</h2>
-                    <p>Rekrut kandidat lokal Bengkulu dengan kualifikasi terbaik untuk mendukung pertumbuhan bisnis Anda.</p>
-                    <div class="card-actions">
-                        <button class="btn btn-outline" id="btnOpenPelamar">
-                            <i class="fa-solid fa-users"></i> Cari Pekerja
-                        </button>
-                        <a href="pasang-loker.html" class="btn btn-primary" style="background: var(--emerald-600); border:none;">
-                            <i class="fa-solid fa-plus-circle"></i> Pasang Loker
-                        </a>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- SECTION 1: LIST LOWONGAN KERJA -->
-        <section id="section-lowongan" class="content-section">
-            <div class="section-header-flex">
-                <h2 class="section-title">
-                    <i class="fa-solid fa-briefcase" style="color: var(--brand-500);"></i> Lowongan Kerja Bengkulu Terbaru
-                </h2>
-                <button class="btn btn-outline btn-go-home">
-                    <i class="fa-solid fa-arrow-left"></i> Kembali
-                </button>
-            </div>
-
-            <!-- SEARCH BAR -->
-            <div class="search-container">
-                <div class="search-box">
-                    <i class="fa-solid fa-search"></i>
-                    <input type="text" id="searchLowongan" class="search-input" placeholder="Cari posisi atau nama perusahaan..." aria-label="Cari lowongan kerja">
+        <div class="choice-grid">
+            <!-- KARTU PENCARI KERJA -->
+            <article class="choice-card">
+                <div class="choice-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                <h2>Pencari Kerja</h2>
+                <p>Temukan puluhan lowongan kerja aktif di Bengkulu atau daftarkan profil Anda agar dilirik perusahaan.</p>
+                <div class="card-actions">
+                    <a href="pencari-kerja.html" class="btn btn-primary">
+                        <i class="fa-solid fa-search"></i> Cari Lowongan Kerja
+                    </a>
+                    <a href="pasang-biodata.html" class="btn btn-outline">
+                        <i class="fa-solid fa-id-card"></i> Buat Biodata Diri
+                    </a>
                 </div>
-            </div>
+            </article>
 
-            <div class="job-grid" id="container-lowongan">
-                <p style="color: var(--slate-400);">Memuat data lowongan...</p>
-            </div>
-        </section>
-
-        <!-- SECTION 2: LIST BIODATA PELAMAR -->
-        <section id="section-pelamar" class="content-section">
-            <div class="section-header-flex">
-                <h2 class="section-title">
-                    <i class="fa-solid fa-users" style="color: var(--brand-500);"></i> Database Pekerja Bengkulu Siap Kerja
-                </h2>
-                <button class="btn btn-outline btn-go-home">
-                    <i class="fa-solid fa-arrow-left"></i> Kembali
-                </button>
-            </div>
-
-            <!-- SEARCH BAR -->
-            <div class="search-container">
-                <div class="search-box">
-                    <i class="fa-solid fa-search"></i>
-                    <input type="text" id="searchPelamar" class="search-input" placeholder="Cari nama atau keahlian/posisi..." aria-label="Cari pencari kerja">
+            <!-- KARTU PEMBERI KERJA -->
+            <article class="choice-card">
+                <div class="choice-icon" style="background: #ecfdf5; color: var(--emerald-600);"><i class="fa-solid fa-building"></i></div>
+                <h2>Pemberi Kerja</h2>
+                <p>Rekrut kandidat lokal Bengkulu dengan kualifikasi terbaik untuk mendukung pertumbuhan bisnis Anda.</p>
+                <div class="card-actions">
+                    <a href="pemberi-kerja.html" class="btn btn-outline" style="border-color: var(--emerald-600); color: var(--emerald-600);">
+                        <i class="fa-solid fa-users"></i> Cari Kandidat Pekerja
+                    </a>
+                    <a href="pasang-loker.html" class="btn btn-primary" style="background: var(--emerald-600); border:none;">
+                        <i class="fa-solid fa-plus-circle"></i> Pasang Loker Baru
+                    </a>
                 </div>
-            </div>
-
-            <div class="job-grid" id="container-pelamar">
-                <p style="color: var(--slate-400);">Memuat data pelamar...</p>
-            </div>
-        </section>
+            </article>
+        </div>
     </main>
-
-    <!-- BOTTOM MOBILE NAVBAR -->
-    <nav class="bottom-nav" aria-label="Navigasi Seluler">
-        <button class="nav-item active" id="bnavHome">
-            <i class="fa-solid fa-house"></i>
-            <span>Beranda</span>
-        </button>
-        <button class="nav-item" id="bnavLoker">
-            <i class="fa-solid fa-briefcase"></i>
-            <span>Lowongan</span>
-        </button>
-        <button class="nav-item" id="bnavPelamar">
-            <i class="fa-solid fa-users"></i>
-            <span>Pekerja</span>
-        </button>
-        <a href="pasang-loker.html" class="nav-item">
-            <i class="fa-solid fa-plus-circle"></i>
-            <span>Pasang</span>
-        </a>
-    </nav>
 
     <footer>
         <p>&copy; 2026 <strong>lokerbengkulu.my.id</strong> &bull; Portal Resmi Ketenagakerjaan Bengkulu</p>
     </footer>
 
-    <!-- SCRIPT MODULE FIREBASE INTEGRASI LANGSUNG -->
+    <!-- SCRIPT MODULE FIREBASE INTEGRASI -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
         import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
         import { getFirestore, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
-        // Konfigurasi Firebase Anda
         const firebaseConfig = {
             apiKey: "AIzaSyCwc-W77xFztHROZEpvfK0nWZC2P9bNGOQ",
             authDomain: "platform-loker-bengkulu.firebaseapp.com",
@@ -835,18 +504,12 @@
             appId: "1:522033003669:web:4ff46c3f27a8df48eeaf9c"
         };
 
-        // Inisialisasi Firebase & Layanan
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const db = getFirestore(app);
 
-        let currentUser = null;
-        let dataLowonganRaw = [];
-        let dataPelamarRaw = [];
-
         // Dynamic Auth State
         onAuthStateChanged(auth, (user) => {
-            currentUser = user;
             const authButtons = document.getElementById('auth-buttons');
             const userProfileMenu = document.getElementById('user-profile-menu');
             const userEmail = document.getElementById('userEmail');
@@ -875,177 +538,26 @@
         document.getElementById('btnLogout').addEventListener('click', async () => {
             try {
                 await signOut(auth);
-                resetHalaman();
                 Swal.fire({
                     icon: 'success',
                     title: 'Berhasil Keluar',
                     timer: 1500,
                     showConfirmButton: false
+                }).then(() => {
+                    window.location.reload();
                 });
             } catch (error) {
                 console.error("Gagal logout:", error);
             }
         });
 
-        // Navigation Controllers
-        document.querySelectorAll('.btn-go-home').forEach(btn => btn.addEventListener('click', resetHalaman));
-        document.getElementById('logoLink').addEventListener('click', (e) => { e.preventDefault(); resetHalaman(); });
-
-        document.getElementById('btnOpenLowongan').addEventListener('click', () => bukaMenu('lowongan'));
-        document.getElementById('btnOpenPelamar').addEventListener('click', () => bukaMenu('pelamar'));
-
-        document.getElementById('bnavHome').addEventListener('click', () => { setActiveBottomNav('bnavHome'); resetHalaman(); });
-        document.getElementById('bnavLoker').addEventListener('click', () => { setActiveBottomNav('bnavLoker'); bukaMenu('lowongan'); });
-        document.getElementById('bnavPelamar').addEventListener('click', () => { setActiveBottomNav('bnavPelamar'); bukaMenu('pelamar'); });
-
-        function setActiveBottomNav(id) {
-            document.querySelectorAll('.bottom-nav .nav-item').forEach(item => item.classList.remove('active'));
-            const activeElem = document.getElementById(id);
-            if(activeElem) activeElem.classList.add('active');
-        }
-
-        function bukaMenu(jenis) {
-            if (!currentUser) {
-                Swal.fire({
-                    title: 'Akses Terbatas',
-                    text: 'Silakan masuk ke akun Anda terlebih dahulu.',
-                    icon: 'info',
-                    showCancelButton: true,
-                    confirmButtonColor: '#4f46e5',
-                    confirmButtonText: 'Masuk Sekarang'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.location.href = 'login.html';
-                    }
-                });
-                return;
-            }
-
-            document.getElementById('main-choices').classList.remove('active');
-            document.getElementById('section-lowongan').classList.remove('active');
-            document.getElementById('section-pelamar').classList.remove('active');
-
-            if (jenis === 'lowongan') {
-                document.getElementById('section-lowongan').classList.add('active');
-                setActiveBottomNav('bnavLoker');
-            } else if (jenis === 'pelamar') {
-                document.getElementById('section-pelamar').classList.add('active');
-                setActiveBottomNav('bnavPelamar');
-            }
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function resetHalaman() {
-            document.getElementById('section-lowongan').classList.remove('active');
-            document.getElementById('section-pelamar').classList.remove('active');
-            document.getElementById('main-choices').classList.add('active');
-            setActiveBottomNav('bnavHome');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // REAL-TIME FIRESTORE LISTENER - LOWONGAN KERJA
+        // Real-time Firestore Stats Counter
         onSnapshot(collection(db, "lowongan_kerja"), (snapshot) => {
-            dataLowonganRaw = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-            document.getElementById("count-lowongan").innerText = dataLowonganRaw.length;
-            renderLowongan(dataLowonganRaw);
-        }, (error) => {
-            console.error("Error fetching lowongan:", error);
+            document.getElementById("count-lowongan").innerText = snapshot.docs.length;
         });
 
-        // REAL-TIME FIRESTORE LISTENER - BIODATA PELAMAR
         onSnapshot(collection(db, "biodata_pelamar"), (snapshot) => {
-            dataPelamarRaw = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-            document.getElementById("count-pelamar").innerText = dataPelamarRaw.length;
-            renderPelamar(dataPelamarRaw);
-        }, (error) => {
-            console.error("Error fetching pelamar:", error);
-        });
-
-        // RENDER LOWONGAN
-        function renderLowongan(data) {
-            const container = document.getElementById("container-lowongan");
-            if(data.length === 0) {
-                container.innerHTML = `
-                    <div class="empty-state">
-                        <i class="fa-solid fa-folder-open"></i>
-                        <h3>Belum ada lowongan</h3>
-                        <p>Belum ada informasi lowongan kerja terbaru saat ini.</p>
-                    </div>`;
-                return;
-            }
-
-            container.innerHTML = data.map(item => `
-                <article class="job-card">
-                    <div>
-                        <div class="job-header">
-                            <span class="job-badge">${item.tipe || 'Full-Time'}</span>
-                        </div>
-                        <h3 class="job-title">${item.posisi || 'Posisi Tidak Ditentukan'}</h3>
-                        <p class="job-company">${item.perusahaan || 'Perusahaan'}</p>
-                        <div class="job-info">
-                            <div><i class="fa-solid fa-location-dot"></i> ${item.lokasi || '-'}</div>
-                            <div><i class="fa-solid fa-wallet"></i> ${item.gaji || 'Negosiasi'}</div>
-                            <div><i class="fa-solid fa-file-lines"></i> ${item.kualifikasi || '-'}</div>
-                        </div>
-                    </div>
-                    <a href="https://wa.me/${item.whatsapp}" target="_blank" rel="noopener noreferrer" class="btn-apply" aria-label="Lamar ${item.posisi} via WhatsApp">
-                        <i class="fa-brands fa-whatsapp"></i> Hubungi via WhatsApp
-                    </a>
-                </article>
-            `).join('');
-        }
-
-        // RENDER PELAMAR
-        function renderPelamar(data) {
-            const container = document.getElementById("container-pelamar");
-            if(data.length === 0) {
-                container.innerHTML = `
-                    <div class="empty-state">
-                        <i class="fa-solid fa-user-slash"></i>
-                        <h3>Belum ada pelamar</h3>
-                        <p>Belum ada data pencari kerja yang terdaftar saat ini.</p>
-                    </div>`;
-                return;
-            }
-
-            container.innerHTML = data.map(item => `
-                <article class="job-card">
-                    <div>
-                        <div class="job-header">
-                            <span class="job-badge" style="background:#ecfdf5; color:var(--emerald-600);">Siap Kerja</span>
-                        </div>
-                        <h3 class="job-title">${item.nama || 'Kandidat'}</h3>
-                        <p class="job-company" style="color:var(--brand-500);">Minat: ${item.posisi || '-'}</p>
-                        <div class="job-info">
-                            <div><i class="fa-solid fa-graduation-cap"></i> ${item.pendidikan || '-'}</div>
-                            <div><i class="fa-solid fa-location-dot"></i> ${item.lokasi || '-'}</div>
-                            <div><i class="fa-solid fa-briefcase"></i> ${item.pengalaman || '-'}</div>
-                        </div>
-                    </div>
-                    <a href="https://wa.me/${item.whatsapp}" target="_blank" rel="noopener noreferrer" class="btn-apply" aria-label="Hubungi ${item.nama} via WhatsApp">
-                        <i class="fa-brands fa-whatsapp"></i> Hubungi via WhatsApp
-                    </a>
-                </article>
-            `).join('');
-        }
-
-        // SEARCH FILTER EVENT LISTENERS
-        document.getElementById('searchLowongan').addEventListener('input', (e) => {
-            const query = e.target.value.toLowerCase();
-            const filtered = dataLowonganRaw.filter(item => 
-                (item.posisi && item.posisi.toLowerCase().includes(query)) ||
-                (item.perusahaan && item.perusahaan.toLowerCase().includes(query))
-            );
-            renderLowongan(filtered);
-        });
-
-        document.getElementById('searchPelamar').addEventListener('input', (e) => {
-            const query = e.target.value.toLowerCase();
-            const filtered = dataPelamarRaw.filter(item => 
-                (item.nama && item.nama.toLowerCase().includes(query)) ||
-                (item.posisi && item.posisi.toLowerCase().includes(query))
-            );
-            renderPelamar(filtered);
+            document.getElementById("count-pelamar").innerText = snapshot.docs.length;
         });
     </script>
 </body>
