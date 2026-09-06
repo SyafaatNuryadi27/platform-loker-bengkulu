@@ -422,6 +422,86 @@
             line-height: 1.3;
         }
 
+        /* FEATURED / PAID CANDIDATES SECTION */
+        .featured-candidates-section {
+            max-width: 1100px;
+            margin: 0 auto 2.5rem;
+            padding: 0 1rem;
+        }
+
+        .candidates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1rem;
+        }
+
+        .candidate-card {
+            background: white;
+            border: 2px solid var(--amber-500);
+            border-radius: var(--radius-md);
+            padding: 1.25rem;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .candidate-badge-top {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #fef3c7;
+            color: #d97706;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 0.25rem 0.6rem;
+            border-radius: 99px;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .candidate-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .candidate-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--brand-100);
+            color: var(--brand-600);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .candidate-info h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--slate-900);
+        }
+
+        .candidate-info p {
+            font-size: 0.75rem;
+            color: var(--brand-600);
+            font-weight: 600;
+        }
+
+        .candidate-body {
+            font-size: 0.8rem;
+            color: var(--slate-600);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
         /* VALUE PROPOSITION SECTION */
         .features-section {
             max-width: 1100px;
@@ -719,6 +799,17 @@
         </div>
     </section>
 
+    <!-- KANDIDAT PRIORITAS (BERBAYAR / FEATURED) -->
+    <section class="featured-candidates-section" id="section-kandidat-prioritas" style="display: none;">
+        <div class="section-title">
+            <h2><i class="fa-solid fa-star" style="color: var(--amber-500);"></i> Kandidat Prioritas Rekrutmen</h2>
+            <p>Talenta profesional unggulan pilihan yang siap direkrut cepat oleh perusahaan.</p>
+        </div>
+        <div class="candidates-grid" id="featuredCandidatesGrid">
+            <!-- Data dimasukkan secara dinamis via Firestore -->
+        </div>
+    </section>
+
     <!-- VALUE PROPOSITION / KEUNGGULAN -->
     <section class="features-section">
         <div class="section-title">
@@ -746,9 +837,9 @@
 
     <!-- MAIN CONTAINER - PORTAL HUB -->
     <main>
-        <div class="choice-grid">
+        <div class="choice-grid" id="choiceGrid">
             <!-- KARTU PENCARI KERJA -->
-            <article class="choice-card">
+            <article class="choice-card" id="card-pencari">
                 <div class="choice-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
                 <h2>Pencari Kerja</h2>
                 <p>Temukan puluhan peluang karir impian Anda di Bengkulu atau daftarkan profil profesional agar langsung dilirik oleh HRD perusahaan ternama.</p>
@@ -763,13 +854,13 @@
             </article>
 
             <!-- KARTU PEMBERI KERJA -->
-            <article class="choice-card employer">
+            <article class="choice-card employer" id="card-pemberi">
                 <div class="choice-icon" style="background: #ecfdf5; color: var(--emerald-600);"><i class="fa-solid fa-building"></i></div>
                 <h2>Pemberi Kerja</h2>
                 <p>Rekrut talenta unggulan lokal Bengkulu dengan kualifikasi terbaik untuk mendukung produktivitas, ekspansi, dan kepatuhan bisnis Anda.</p>
                 <div class="card-actions">
                     <a href="pemberi-kerja.html" class="btn btn-outline" style="border-color: var(--emerald-600); color: var(--emerald-600);">
-                        <i class="fa-solid fa-users"></i> Jelajahi Kandidat
+                        <i class="fa-solid fa-users"></i> Cari Kandidat
                     </a>
                     <a href="pasang-loker.html" class="btn btn-primary" style="background: var(--emerald-600); border:none;">
                         <i class="fa-solid fa-plus-circle"></i> Pasang Lowongan Baru
@@ -814,7 +905,7 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
         import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
-        import { getFirestore, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+        import { getFirestore, collection, onSnapshot, doc, getDoc } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyCwc-W77xFztHROZEpvfK0nWZC2P9bNGOQ",
@@ -831,20 +922,53 @@
 
         let currentUser = null;
 
-        // Dynamic Auth State
-        onAuthStateChanged(auth, (user) => {
+        // Dynamic Auth State & Role-Based UI Adjustment
+        onAuthStateChanged(auth, async (user) => {
             currentUser = user;
             const authButtons = document.getElementById('auth-buttons');
             const userProfileMenu = document.getElementById('user-profile-menu');
             const userEmail = document.getElementById('userEmail');
+            const cardPencari = document.getElementById('card-pencari');
+            const cardPemberi = document.getElementById('card-pemberi');
 
             if (user) {
                 authButtons.style.display = 'none';
                 userProfileMenu.classList.add('active');
                 userEmail.innerText = user.email ? user.email.split('@')[0] : 'Akun';
+
+                // Fetch user role from Firestore users collection
+                try {
+                    const userDocRef = doc(db, "users", user.uid);
+                    const userSnap = await getDoc(userDocRef);
+
+                    if (userSnap.exists()) {
+                        const userData = userSnap.data();
+                        const role = userData.role ? userData.role.toLowerCase() : '';
+
+                        if (role.includes('pencari') || role.includes('pelamar')) {
+                            if (cardPencari) cardPencari.style.display = 'flex';
+                            if (cardPemberi) cardPemberi.style.display = 'none';
+                        } else if (role.includes('pemberi') || role.includes('perusahaan') || role.includes('employer')) {
+                            if (cardPencari) cardPencari.style.display = 'none';
+                            if (cardPemberi) cardPemberi.style.display = 'flex';
+                        } else {
+                            if (cardPencari) cardPencari.style.display = 'flex';
+                            if (cardPemberi) cardPemberi.style.display = 'flex';
+                        }
+                    } else {
+                        if (cardPencari) cardPencari.style.display = 'flex';
+                        if (cardPemberi) cardPemberi.style.display = 'flex';
+                    }
+                } catch (error) {
+                    console.error("Gagal mengambil role pengguna:", error);
+                    if (cardPencari) cardPencari.style.display = 'flex';
+                    if (cardPemberi) cardPemberi.style.display = 'flex';
+                }
             } else {
                 authButtons.style.display = 'flex';
                 userProfileMenu.classList.remove('active');
+                if (cardPencari) cardPencari.style.display = 'flex';
+                if (cardPemberi) cardPemberi.style.display = 'flex';
             }
         });
 
@@ -908,6 +1032,46 @@
 
         onSnapshot(collection(db, "biodata_pelamar"), (snapshot) => {
             document.getElementById("count-pelamar").innerText = snapshot.docs.length;
+        });
+
+        // Real-time Featured / Paid Candidates Renderer
+        onSnapshot(collection(db, "kandidat_prioritas"), (snapshot) => {
+            const container = document.getElementById("featuredCandidatesGrid");
+            const section = document.getElementById("section-kandidat-prioritas");
+            
+            if (snapshot.empty) {
+                section.style.display = 'none';
+                return;
+            }
+
+            section.style.display = 'block';
+            container.innerHTML = "";
+
+            snapshot.forEach((docSnap) => {
+                const data = docSnap.data();
+                const initial = data.nama ? data.nama.charAt(0).toUpperCase() : "P";
+                
+                const card = document.createElement("div");
+                card.className = "candidate-card";
+                card.innerHTML = `
+                    <div class="candidate-badge-top"><i class="fa-solid fa-bolt"></i> Prioritas</div>
+                    <div class="candidate-header">
+                        <div class="candidate-avatar">${initial}</div>
+                        <div class="candidate-info">
+                            <h3>${data.nama}</h3>
+                            <p>${data.posisi}</p>
+                        </div>
+                    </div>
+                    <div class="candidate-body">
+                        <p><strong>Pengalaman:</strong> ${data.pengalaman || '-'}</p>
+                        <p style="margin-top: 0.2rem;"><strong>Keahlian:</strong> ${data.keahlian || '-'}</p>
+                    </div>
+                    <a href="https://wa.me/${data.whatsapp}" target="_blank" class="btn btn-primary" style="width: 100%; font-size: 0.78rem; background: var(--emerald-600); border:none;">
+                        <i class="fa-brands fa-whatsapp"></i> Hubungi Kandidat
+                    </a>
+                `;
+                container.appendChild(card);
+            });
         });
     </script>
 </body>
