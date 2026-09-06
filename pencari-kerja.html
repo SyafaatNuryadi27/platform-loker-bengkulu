@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Portal Pencari Kerja - Loker Bengkulu</title>
+    <meta name="description" content="Temukan info lowongan kerja terbaru di Bengkulu dan buat biodata profesional secara gratis.">
+    
+    <!-- Google Fonts & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+        :root {
+            --brand-50: #eef2ff;
+            --brand-500: #4f46e5;
+            --brand-600: #4338ca;
+            --brand-700: #3730a3;
+            --slate-50: #f8fafc;
+            --slate-100: #f1f5f9;
+            --slate-200: #e2e8f0;
+            --slate-600: #475569;
+            --slate-700: #334155;
+            --slate-800: #1e293b;
+            --slate-900: #0f172a;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --radius-md: 14px;
+            --radius-sm: 10px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background-color: var(--slate-50); color: var(--slate-800); line-height: 1.5; padding-bottom: 60px; }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--slate-200);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
+        
+        .navbar { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            height: 72px; 
+        }
+
+        .logo { 
+            display: flex; 
+            align-items: center; 
+            gap: 0.75rem; 
+            text-decoration: none; 
+        }
+
+        .logo-icon { 
+            background: linear-gradient(135deg, var(--brand-500), var(--brand-700)); 
+            color: white; 
+            width: 42px; 
+            height: 42px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            border-radius: var(--radius-sm); 
+            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.25);
+        }
+
+        .logo-text { 
+            font-size: 1.2rem; 
+            font-weight: 800; 
+            color: var(--slate-900); 
+            letter-spacing: -0.02em;
+        }
+
+        .logo-text span { 
+            color: var(--brand-500); 
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .btn { 
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 0.5rem; 
+            padding: 0.65rem 1.15rem; 
+            border-radius: var(--radius-sm); 
+            font-size: 0.85rem; 
+            font-weight: 600; 
+            text-decoration: none; 
+            cursor: pointer; 
+            border: 1px solid transparent; 
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary { 
+            background: var(--brand-500); 
+            color: white; 
+            box-shadow: 0 2px 6px rgba(79, 70, 229, 0.2);
+        }
+        .btn-primary:hover {
+            background: var(--brand-600);
+        }
+
+        .btn-outline { 
+            border-color: var(--slate-200); 
+            color: var(--slate-700); 
+            background: white; 
+        }
+        .btn-outline:hover {
+            background: var(--slate-50);
+            border-color: var(--slate-300);
+        }
+
+        .app-hero {
+            background: linear-gradient(135deg, var(--slate-900), var(--brand-700));
+            color: white;
+            padding: 2.5rem 1rem 3rem;
+            text-align: center;
+        }
+        .app-hero h1 { font-size: 1.8rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .app-hero p { font-size: 0.9rem; opacity: 0.85; max-width: 500px; margin: 0 auto; }
+
+        main { max-width: 1100px; margin: 1.5rem auto; padding: 0 1rem; }
+
+        .search-container { background: white; padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--slate-200); margin-bottom: 1.5rem; box-shadow: var(--shadow-sm); }
+        .search-box { position: relative; }
+        .search-box i { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: #94a3b8; }
+        .search-input { width: 100%; padding: 0.7rem 1rem 0.7rem 2.5rem; border: 1px solid var(--slate-200); border-radius: var(--radius-sm); outline: none; font-size: 0.85rem; }
+
+        .job-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
+        .job-card { background: white; border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 1.25rem; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; justify-content: space-between; }
+        .job-badge { font-size: 0.7rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 6px; background: var(--brand-50); color: var(--brand-500); text-transform: uppercase; display: inline-block; margin-bottom: 0.75rem; }
+        .job-title { font-size: 1.05rem; font-weight: 700; color: var(--slate-900); margin-bottom: 0.2rem; }
+        .job-company { font-size: 0.85rem; font-weight: 600; color: var(--slate-600); margin-bottom: 1rem; }
+        .job-info { display: flex; flex-direction: column; gap: 0.4rem; background: var(--slate-50); padding: 0.75rem; border-radius: var(--radius-sm); margin-bottom: 1rem; font-size: 0.8rem; color: var(--slate-700); }
+        .job-info div { display: flex; align-items: center; gap: 0.5rem; }
+        
+        .btn-apply { background: #25d366; color: white; border: none; padding: 0.65rem; border-radius: var(--radius-sm); font-weight: 700; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem; text-decoration: none; }
+        .btn-apply:hover { background: #1ebc57; }
+
+        .empty-state { text-align: center; padding: 3rem 1rem; background: white; border-radius: var(--radius-md); border: 1px solid var(--slate-200); grid-column: 1 / -1; }
+        .empty-state i { font-size: 2.5rem; color: #cbd5e1; margin-bottom: 0.75rem; }
+        
+        .action-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+
+        /* Responsive adjustments for mobile screens */
+        @media (max-width: 640px) {
+            .navbar { height: 64px; }
+            .logo-text { font-size: 1.05rem; }
+            .logo-icon { width: 36px; height: 36px; }
+            .nav-actions { gap: 0.4rem; }
+            .btn { padding: 0.5rem 0.75rem; font-size: 0.75rem; }
+            .btn span { display: none; } /* Hide text on extremely tight screens, keeping icons clear */
+        }
+        @media (min-width: 641px) {
+            .btn span { display: inline; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-briefcase"></i></div>
+                <div class="logo-text">loker<span>bengkulu</span></div>
+            </a>
+            <div class="nav-actions">
+                <a href="pasang-biodata.html" class="btn btn-primary" title="Buat Biodata">
+                    <i class="fa-solid fa-id-card"></i> <span>Buat Biodata</span>
+                </a>
+                <a href="pemberi-kerja.html" class="btn btn-outline" title="Mode Pemberi Kerja">
+                    <i class="fa-solid fa-building"></i> <span>Mode Pemberi Kerja</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="app-hero">
+        <h1>Pusat Lowongan Kerja Bengkulu</h1>
+        <p>Temukan ratusan peluang karir impian Anda di Provinsi Bengkulu secara transparan dan langsung.</p>
+    </section>
+
+    <main>
+        <div class="action-bar">
+            <h2 style="font-size: 1.1rem; font-weight: 800;">Daftar Lowongan Aktif</h2>
+            <span id="count-lowongan" style="font-size: 0.85rem; color: var(--slate-600); font-weight: 600;">Memuat...</span>
+        </div>
+
+        <div class="search-container">
+            <div class="search-box">
+                <i class="fa-solid fa-search"></i>
+                <input type="text" id="searchLowongan" class="search-input" placeholder="Cari posisi atau nama perusahaan...">
+            </div>
+        </div>
+
+        <div class="job-grid" id="container-lowongan">
+            <p style="color: #94a3b8;">Memuat data lowongan...</p>
+        </div>
+    </main>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+        import { getFirestore, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCwc-W77xFztHROZEpvfK0nWZC2P9bNGOQ",
+            authDomain: "platform-loker-bengkulu.firebaseapp.com",
+            projectId: "platform-loker-bengkulu",
+            storageBucket: "platform-loker-bengkulu.firebasestorage.app",
+            messagingSenderId: "522033003669",
+            appId: "1:522033003669:web:4ff46c3f27a8df48eeaf9c"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        let dataLowonganRaw = [];
+
+        onSnapshot(collection(db, "lowongan_kerja"), (snapshot) => {
+            dataLowonganRaw = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+            document.getElementById("count-lowongan").innerText = `${dataLowonganRaw.length} Lowongan Tersedia`;
+            renderLowongan(dataLowonganRaw);
+        });
+
+        function renderLowongan(data) {
+            const container = document.getElementById("container-lowongan");
+            if(data.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fa-solid fa-folder-open"></i>
+                        <h3>Belum ada lowongan</h3>
+                        <p>Belum ada informasi lowongan kerja terbaru saat ini.</p>
+                    </div>`;
+                return;
+            }
+
+            container.innerHTML = data.map(item => `
+                <article class="job-card">
+                    <div>
+                        <span class="job-badge">${item.tipe || 'Full-Time'}</span>
+                        <h3 class="job-title">${item.posisi || 'Posisi'}</h3>
+                        <p class="job-company">${item.perusahaan || 'Perusahaan'}</p>
+                        <div class="job-info">
+                            <div><i class="fa-solid fa-location-dot"></i> ${item.lokasi || '-'}</div>
+                            <div><i class="fa-solid fa-wallet"></i> ${item.gaji || 'Negosiasi'}</div>
+                            <div><i class="fa-solid fa-file-lines"></i> ${item.kualifikasi || '-'}</div>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/${item.whatsapp}" target="_blank" class="btn-apply">
+                        <i class="fa-brands fa-whatsapp"></i> Hubungi via WhatsApp
+                    </a>
+                </article>
+            `).join('');
+        }
+
+        document.getElementById('searchLowongan').addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            const filtered = dataLowonganRaw.filter(item => 
+                (item.posisi && item.posisi.toLowerCase().includes(query)) ||
+                (item.perusahaan && item.perusahaan.toLowerCase().includes(query))
+            );
+            renderLowongan(filtered);
+        });
+    </script>
+</body>
+</html>
