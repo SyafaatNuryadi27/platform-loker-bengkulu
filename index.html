@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- GOOGLE SITE VERIFICATION -->
     <meta name="google-site-verification" content="BJsspTWcGYbV8YsCDRvHpKjwmvwqHsNwTk5vysot2Gc" />
@@ -17,48 +17,33 @@
     </script>
 
     <!-- SEO METADATA DASAR -->
-    <title>Loker Bengkulu - Portal Lowongan Kerja & Pencari Kerja Resmi Bengkulu</title>
-    <meta name="description" content="Portal resmi ketenagakerjaan Provinsi Bengkulu. Temukan info lowongan kerja (loker) terbaru, pasang iklan lowongan, atau temukan kandidat pekerja profesional gratis.">
-    <meta name="keywords" content="loker bengkulu, lowongan kerja bengkulu, cari kerja bengkulu, info loker bengkulu, portal karir bengkulu, bengkulu job portal">
+    <title>Loker Bengkulu - Portal Resmi Lowongan Kerja & Ketenagakerjaan Provinsi Bengkulu</title>
+    <meta name="description" content="Portal resmi ketenagakerjaan dan lowongan kerja Provinsi Bengkulu berkoordinasi dengan Dinas Tenaga Kerja. Temukan loker valid, pasang lowongan, atau buat CV digital gratis.">
+    <meta name="keywords" content="loker bengkulu, lowongan kerja bengkulu, disnakertrans bengkulu, portal karir bengkulu, cari kerja bengkulu resmi">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://lokerbengkulu.my.id/">
-    <meta name="theme-color" content="#4f46e5">
+    <meta name="theme-color" content="#1e1b4b">
 
     <!-- OPEN GRAPH -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://lokerbengkulu.my.id/">
-    <meta property="og:title" content="Loker Bengkulu - Portal Karir Digital Provinsi Bengkulu">
-    <meta property="og:description" content="Temukan puluhan lowongan kerja aktif atau pasang loker gratis di Bengkulu secara transparan dan mudah.">
+    <meta property="og:title" content="Loker Bengkulu - Portal Karir Digital Resmi Provinsi Bengkulu">
+    <meta property="og:description" content="Portal ketenagakerjaan resmi untuk pencari kerja dan pemberi kerja di Provinsi Bengkulu. Transparan, aman, bergaransi 100% bebas pungli dan terverifikasi.">
     <meta property="og:site_name" content="Loker Bengkulu">
 
     <!-- TWITTER CARD -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Loker Bengkulu - Portal Karir Digital Provinsi Bengkulu">
-    <meta name="twitter:description" content="Temukan puluhan lowongan kerja aktif atau pasang loker gratis di Bengkulu secara transparan dan mudah.">
+    <meta name="twitter:title" content="Loker Bengkulu - Portal Karir Digital Resmi Provinsi Bengkulu">
+    <meta name="twitter:description" content="Portal ketenagakerjaan resmi untuk pencari kerja dan pemberi kerja di Provinsi Bengkulu. Transparan, aman, dan terverifikasi.">
 
-    <!-- STRUCTURED DATA SCHEMA.ORG (JSON-LD) UNTUK GOOGLE -->
+    <!-- STRUCTURED DATA SCHEMA.ORG (JSON-LD) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Loker Bengkulu",
-      "alternateName": ["Portal Loker Bengkulu", "Lowongan Kerja Bengkulu Resmi"],
+      "@type": "GovernmentOrganization",
+      "name": "Loker Bengkulu - Portal Resmi Ketenagakerjaan",
+      "alternateName": ["Disnaker Bengkulu Portal Karir", "Lowongan Kerja Bengkulu Resmi"],
       "url": "https://lokerbengkulu.my.id/",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://lokerbengkulu.my.id/pencari-kerja.html?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Loker Bengkulu",
-      "url": "https://lokerbengkulu.my.id/",
-      "logo": "https://lokerbengkulu.my.id/favicon.ico",
       "areaServed": {
         "@type": "AdministrativeArea",
         "name": "Bengkulu"
@@ -99,6 +84,7 @@
             --slate-900: #0f172a;
             --emerald-500: #10b981;
             --emerald-600: #059669;
+            --amber-500: #f59e0b;
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
             --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
             --shadow-lg: 0 10px 25px -5px rgba(0,0,0,0.1);
@@ -120,11 +106,33 @@
             color: var(--slate-800);
             line-height: 1.5;
             padding-bottom: 40px;
+            overflow-x: hidden;
+        }
+
+        /* TOP OFFICIAL BANNER */
+        .official-top-bar {
+            background: linear-gradient(90deg, #0f172a, #1e1b4b, #0f172a);
+            color: #e2e8f0;
+            font-size: 0.72rem;
+            padding: 0.45rem 1rem;
+            text-align: center;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+        }
+
+        .official-top-bar span {
+            color: #fbbf24;
+            font-weight: 700;
         }
 
         /* HEADER & NAVBAR */
         header {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--slate-200);
             position: sticky;
@@ -135,14 +143,15 @@
         .container {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 0 1.25rem;
+            padding: 0 1rem;
         }
 
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 64px;
+            height: 68px;
+            gap: 0.5rem;
         }
 
         .logo {
@@ -150,6 +159,7 @@
             align-items: center;
             gap: 0.6rem;
             text-decoration: none;
+            min-width: 0;
         }
 
         .logo-icon {
@@ -162,24 +172,36 @@
             justify-content: center;
             border-radius: var(--radius-sm);
             font-size: 1rem;
-            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.35);
+            flex-shrink: 0;
         }
 
         .logo-text {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 800;
             color: var(--slate-900);
             letter-spacing: -0.4px;
+            white-space: nowrap;
         }
 
         .logo-text span {
             color: var(--brand-500);
         }
 
+        .logo-subtitle {
+            font-size: 0.6rem;
+            color: var(--slate-500);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
         .nav-right {
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            flex-shrink: 0;
         }
 
         .auth-actions {
@@ -194,9 +216,9 @@
             align-items: center;
             justify-content: center;
             gap: 0.35rem;
-            padding: 0.42rem 0.85rem;
+            padding: 0.45rem 0.85rem;
             border-radius: var(--radius-sm);
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             font-weight: 600;
             text-decoration: none;
             border: 1px solid transparent;
@@ -220,11 +242,12 @@
         .btn-primary {
             background: var(--brand-500);
             color: white;
-            box-shadow: 0 3px 10px rgba(79, 70, 229, 0.25);
+            box-shadow: 0 3px 12px rgba(79, 70, 229, 0.3);
         }
 
         .btn-primary:hover {
             background: var(--brand-600);
+            transform: translateY(-1px);
         }
 
         /* USER MENU */
@@ -240,15 +263,15 @@
         .user-btn {
             background: var(--slate-100);
             border: 1px solid var(--slate-200);
-            padding: 0.4rem 0.85rem;
+            padding: 0.35rem 0.75rem;
             border-radius: 99px;
             font-weight: 600;
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             color: var(--slate-800);
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.4rem;
         }
 
         .user-dropdown {
@@ -259,7 +282,7 @@
             border: 1px solid var(--slate-200);
             border-radius: var(--radius-md);
             box-shadow: var(--shadow-lg);
-            width: 220px;
+            width: 200px;
             display: none;
             flex-direction: column;
             overflow: hidden;
@@ -271,8 +294,8 @@
         }
 
         .dropdown-item {
-            padding: 0.8rem 1rem;
-            font-size: 0.82rem;
+            padding: 0.75rem 1rem;
+            font-size: 0.8rem;
             color: var(--slate-700);
             text-decoration: none;
             display: flex;
@@ -293,50 +316,79 @@
 
         /* HERO BANNER */
         .app-hero {
-            background: linear-gradient(135deg, var(--slate-900), var(--brand-700));
+            background: linear-gradient(135deg, var(--slate-900), var(--brand-700), #1e1b4b);
             color: white;
-            padding: 3rem 1rem 4rem;
+            padding: 3rem 1rem 4.5rem;
             border-radius: 0 0 var(--radius-lg) var(--radius-lg);
             text-align: center;
             box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
         }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(16, 185, 129, 0.15);
             backdrop-filter: blur(8px);
-            color: white;
+            color: #34d399;
             padding: 0.3rem 0.85rem;
             border-radius: 99px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-bottom: 1.25rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.72rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(52, 211, 153, 0.3);
+            max-width: 100%;
+            text-align: center;
+            white-space: normal;
         }
 
         .app-hero h1 {
-            font-size: 2rem;
+            font-size: 1.75rem;
             font-weight: 800;
             letter-spacing: -0.5px;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
+            line-height: 1.25;
         }
 
         .app-hero p {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+            max-width: 620px;
+            margin: 0 auto 1.25rem;
+            line-height: 1.5;
+            padding: 0 0.5rem;
+        }
+
+        .hero-trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.25rem;
+            font-size: 0.75rem;
             opacity: 0.85;
-            max-width: 520px;
-            margin: 0 auto;
+            padding: 0 0.5rem;
+        }
+
+        .hero-trust-badges span {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .hero-trust-badges i {
+            color: #34d399;
         }
 
         /* STATS COUNTER */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            max-width: 800px;
-            margin: -2rem auto 2.5rem;
+            gap: 0.75rem;
+            max-width: 840px;
+            margin: -2rem auto 2rem;
             padding: 0 1rem;
             position: relative;
             z-index: 10;
@@ -344,43 +396,108 @@
 
         .stat-card {
             background: white;
-            padding: 1rem;
+            padding: 1rem 0.75rem;
             border-radius: var(--radius-md);
             text-align: center;
             border: 1px solid var(--slate-200);
-            box-shadow: var(--shadow-sm);
+            box-shadow: var(--shadow-md);
+            transition: transform 0.2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
         }
 
         .stat-number {
             font-size: 1.25rem;
             font-weight: 800;
             color: var(--brand-500);
+            margin-bottom: 0.15rem;
         }
 
         .stat-label {
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             color: var(--slate-600);
             font-weight: 600;
+            line-height: 1.3;
+        }
+
+        /* VALUE PROPOSITION SECTION */
+        .features-section {
+            max-width: 1100px;
+            margin: 0 auto 2.5rem;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title h2 {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--slate-900);
+            margin-bottom: 0.3rem;
+        }
+
+        .section-title p {
+            font-size: 0.85rem;
+            color: var(--slate-600);
+            padding: 0 0.5rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1rem;
+        }
+
+        .feature-box {
+            background: white;
+            border: 1px solid var(--slate-200);
+            padding: 1.25rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .feature-box i {
+            font-size: 1.35rem;
+            color: var(--brand-500);
+            margin-bottom: 0.6rem;
+        }
+
+        .feature-box h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--slate-900);
+            margin-bottom: 0.3rem;
+        }
+
+        .feature-box p {
+            font-size: 0.82rem;
+            color: var(--slate-600);
+            line-height: 1.5;
         }
 
         /* MAIN CONTAINER */
         main {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 0 1rem 3rem;
+            padding: 0 1rem 2.5rem;
         }
 
         /* CHOICE CARDS */
         .choice-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.25rem;
         }
 
         .choice-card {
             background: white;
             border-radius: var(--radius-md);
-            padding: 2rem 1.5rem;
+            padding: 1.75rem 1.25rem;
             box-shadow: var(--shadow-sm);
             border: 1px solid var(--slate-200);
             display: flex;
@@ -388,70 +505,157 @@
             align-items: center;
             text-align: center;
             transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .choice-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--brand-500);
+        }
+
+        .choice-card.employer::before {
+            background: var(--emerald-600);
         }
 
         .choice-card:hover {
             transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-lg);
         }
 
         .choice-icon {
-            width: 60px;
-            height: 60px;
+            width: 56px;
+            height: 56px;
             border-radius: var(--radius-md);
             background: var(--brand-50);
             color: var(--brand-500);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 1.2rem;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
         }
 
         .choice-card h2 {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: var(--slate-900);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
         }
 
         .choice-card p {
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             color: var(--slate-600);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
+            line-height: 1.5;
         }
 
         .card-actions {
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 0.7rem;
+            gap: 0.6rem;
+        }
+
+        /* MEDIA QUERIES FOR LARGER SCREENS */
+        @media (min-width: 640px) {
+            .app-hero { padding: 3.5rem 1.5rem 5rem; }
+            .app-hero h1 { font-size: 2.2rem; }
+            .stat-number { font-size: 1.5rem; }
+            .choice-card { padding: 2rem 1.5rem; }
+            .container { padding: 0 1.5rem; }
         }
 
         @media (min-width: 769px) {
-            .app-hero h1 { font-size: 2.3rem; }
-            .stat-number { font-size: 1.5rem; }
-            .stat-label { font-size: 0.85rem; }
+            .app-hero h1 { font-size: 2.4rem; }
+            .stat-number { font-size: 1.75rem; }
+            .stats-grid { gap: 1rem; margin: -2.5rem auto 2.5rem; }
         }
 
+        @media (max-width: 380px) {
+            .auth-actions .btn {
+                padding: 0.4rem 0.6rem;
+                font-size: 0.72rem;
+            }
+            .logo-text { font-size: 1rem; }
+            .logo-subtitle { display: none; }
+        }
+
+        /* OFFICIAL FOOTER */
         footer {
-            text-align: center;
-            padding: 2rem 1rem;
-            font-size: 0.8rem;
-            color: var(--slate-400);
+            background: white;
             border-top: 1px solid var(--slate-200);
+            padding: 2.5rem 1rem 1.25rem;
             margin-top: 2rem;
+            color: var(--slate-600);
+            font-size: 0.82rem;
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            color: var(--slate-900);
+            font-size: 0.92rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .footer-col ul li a {
+            color: var(--slate-600);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--brand-500);
+        }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--slate-100);
+            text-align: center;
+            font-size: 0.78rem;
+            color: var(--slate-400);
         }
     </style>
 </head>
 <body>
+
+    <!-- TOP OFFICIAL NOTICE BAR -->
+    <div class="official-top-bar">
+        <span><i class="fa-solid fa-shield-halved" style="color: #34d399;"></i> Portal Layanan Publik Resmi</span> &bull; Berkoordinasi dengan <span>Disnakertrans Provinsi Bengkulu</span>
+    </div>
 
     <!-- TOP HEADER NAVBAR -->
     <header>
         <div class="container navbar">
             <a href="index.html" class="logo">
                 <div class="logo-icon"><i class="fa-solid fa-briefcase"></i></div>
-                <div class="logo-text">loker<span>bengkulu</span></div>
+                <div>
+                    <div class="logo-text">loker<span>bengkulu</span></div>
+                    <div class="logo-subtitle">Official Career Portal</div>
+                </div>
             </a>
 
             <nav class="nav-right" aria-label="Menu Navigasi Akun">
@@ -468,7 +672,7 @@
                 <!-- MENU AKUN SETELAH LOGIN -->
                 <div class="user-menu" id="user-profile-menu">
                     <button class="user-btn" id="btnUserMenu" aria-label="Menu Pengguna">
-                        <i class="fa-solid fa-circle-user" style="color: var(--brand-500); font-size: 1.05rem;"></i>
+                        <i class="fa-solid fa-circle-user" style="color: var(--brand-500); font-size: 1.1rem;"></i>
                         <span id="userEmail">Akun</span>
                         <i class="fa-solid fa-chevron-down text-xs" style="color: var(--slate-400);"></i>
                     </button>
@@ -487,25 +691,56 @@
     <!-- HERO SECTION -->
     <section class="app-hero">
         <div class="hero-badge">
-            <i class="fa-solid fa-shield-halved"></i> Portal Resmi Provinsi Bengkulu
+            <i class="fa-solid fa-circle-check"></i> 100% Resmi, Legal &amp; Tanpa Pungutan Biaya (Gratis)
         </div>
-        <h1>Portal Karir &amp; Lowongan Kerja Digital Bengkulu</h1>
-        <p>Hubungkan potensi pencari kerja lokal Bengkulu dengan tempat kerja terbaik secara cepat, transparan, dan gratis.</p>
+        <h1>Pusat Bursa Kerja &amp; Karir Resmi Provinsi Bengkulu</h1>
+        <p>Jembatan transparan penghubung talenta profesional lokal dengan instansi, BUMN, dan perusahaan swasta terpercaya di seluruh kabupaten/kota Bengkulu.</p>
+        
+        <div class="hero-trust-badges">
+            <span><i class="fa-solid fa-check"></i> Perusahaan Terverifikasi</span>
+            <span><i class="fa-solid fa-check"></i> Bebas Pungli &amp; Aman</span>
+            <span><i class="fa-solid fa-check"></i> Langsung ke Perekrut</span>
+        </div>
     </section>
 
     <!-- RINGKASAN STATISTIK -->
     <section class="stats-grid" aria-label="Statistik Portal">
         <div class="stat-card">
             <div class="stat-number" id="count-lowongan">0</div>
-            <div class="stat-label">Lowongan Kerja</div>
+            <div class="stat-label">Lowongan Aktif</div>
         </div>
         <div class="stat-card">
             <div class="stat-number" id="count-pelamar">0</div>
             <div class="stat-label">Pencari Kerja</div>
         </div>
         <div class="stat-card">
-            <div class="stat-number">100%</div>
-            <div class="stat-label">Gratis &amp; Aksesibel</div>
+            <div class="stat-number" style="color: var(--emerald-600);">100%</div>
+            <div class="stat-label">Gratis &amp; Resmi</div>
+        </div>
+    </section>
+
+    <!-- VALUE PROPOSITION / KEUNGGULAN -->
+    <section class="features-section">
+        <div class="section-title">
+            <h2>Kenapa Menggunakan Portal Ini?</h2>
+            <p>Dirancang untuk memberikan kemudahan dan keamanan bagi tenaga kerja maupun pemberi kerja di Bengkulu.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-box">
+                <i class="fa-solid fa-shield-check"></i>
+                <h3>Dijamin Aman &amp; Valid</h3>
+                <p>Seluruh lowongan kerja yang tayang telah melalui verifikasi standar ketenagakerjaan daerah untuk menghindari penipuan loker fiktif.</p>
+            </div>
+            <div class="feature-box">
+                <i class="fa-solid fa-bolt"></i>
+                <h3>Proses Cepat &amp; Mudah</h3>
+                <p>Buat CV digital instan, lamar pekerjaan langsung secara online, atau pantau status lamaran tanpa repot mengirim berkas fisik.</p>
+            </div>
+            <div class="feature-box">
+                <i class="fa-solid fa-hand-holding-dollar"></i>
+                <h3>Sepenuhnya Gratis</h3>
+                <p>Layanan pencarian kerja dan pemasangan lowongan kerja tidak dipungut biaya sepeser pun demi kesejahteraan masyarakat Bengkulu.</p>
+            </div>
         </div>
     </section>
 
@@ -516,36 +751,63 @@
             <article class="choice-card">
                 <div class="choice-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
                 <h2>Pencari Kerja</h2>
-                <p>Temukan puluhan lowongan kerja aktif di Bengkulu atau daftarkan profil Anda agar dilirik perusahaan.</p>
+                <p>Temukan puluhan peluang karir impian Anda di Bengkulu atau daftarkan profil profesional agar langsung dilirik oleh HRD perusahaan ternama.</p>
                 <div class="card-actions">
                     <a href="pencari-kerja.html" class="btn btn-primary">
                         <i class="fa-solid fa-search"></i> Cari Lowongan Kerja
                     </a>
                     <a href="pasang-biodata.html" class="btn btn-outline">
-                        <i class="fa-solid fa-id-card"></i> Buat Biodata Diri
+                        <i class="fa-solid fa-id-card"></i> Buat Biodata (CV Digital)
                     </a>
                 </div>
             </article>
 
             <!-- KARTU PEMBERI KERJA -->
-            <article class="choice-card">
+            <article class="choice-card employer">
                 <div class="choice-icon" style="background: #ecfdf5; color: var(--emerald-600);"><i class="fa-solid fa-building"></i></div>
                 <h2>Pemberi Kerja</h2>
-                <p>Rekrut kandidat lokal Bengkulu dengan kualifikasi terbaik untuk mendukung pertumbuhan bisnis Anda.</p>
+                <p>Rekrut talenta unggulan lokal Bengkulu dengan kualifikasi terbaik untuk mendukung produktivitas, ekspansi, dan kepatuhan bisnis Anda.</p>
                 <div class="card-actions">
                     <a href="pemberi-kerja.html" class="btn btn-outline" style="border-color: var(--emerald-600); color: var(--emerald-600);">
-                        <i class="fa-solid fa-users"></i> Cari Kandidat Pekerja
+                        <i class="fa-solid fa-users"></i> Jelajahi Kandidat
                     </a>
                     <a href="pasang-loker.html" class="btn btn-primary" style="background: var(--emerald-600); border:none;">
-                        <i class="fa-solid fa-plus-circle"></i> Pasang Loker Baru
+                        <i class="fa-solid fa-plus-circle"></i> Pasang Lowongan Baru
                     </a>
                 </div>
             </article>
         </div>
     </main>
 
+    <!-- OFFICIAL FOOTER -->
     <footer>
-        <p>&copy; 2026 <strong>lokerbengkulu.my.id</strong> &bull; Portal Resmi Ketenagakerjaan Bengkulu</p>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Loker Bengkulu</h4>
+                <p style="font-size: 0.8rem; color: var(--slate-600); margin-top: 0.3rem; line-height: 1.5;">
+                    Platform bursa kerja digital resmi pemerintah untuk memfasilitasi penempatan dan perluasan kesempatan kerja di Provinsi Bengkulu.
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>Tautan Cepat</h4>
+                <ul>
+                    <li><a href="pencari-kerja.html">Cari Lowongan</a></li>
+                    <li><a href="pasang-loker.html">Pasang Lowongan</a></li>
+                    <li><a href="pasang-biodata.html">Buat Biodata</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal &amp; Informasi</h4>
+                <ul>
+                    <li><a href="#">Syarat &amp; Ketentuan</a></li>
+                    <li><a href="#">Kebijakan Privasi &amp; Keamanan</a></li>
+                    <li><a href="#">Panduan Anti-Pungli &amp; Penipuan</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 <strong>lokerbengkulu.my.id</strong> &bull; Berkoordinasi dengan Disnakertrans Provinsi Bengkulu</p>
+        </div>
     </footer>
 
     <!-- SCRIPT MODULE FIREBASE INTEGRASI -->
@@ -586,19 +848,19 @@
             }
         });
 
-        // Protected Links Interceptor (Cari Lowongan Kerja & Cari Kandidat Pekerja)
+        // Protected Links Interceptor (Official Institutional Notice)
         const protectedLinks = document.querySelectorAll('a[href="pencari-kerja.html"], a[href="pemberi-kerja.html"]');
         protectedLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 if (!currentUser) {
                     e.preventDefault();
                     Swal.fire({
-                        icon: 'warning',
-                        title: 'Login Diperlukan',
-                        text: 'Silakan masuk atau daftar terlebih dahulu untuk mengakses halaman pencarian.',
+                        icon: 'info',
+                        title: 'Autentikasi Akun Diperlukan',
+                        text: 'Demi keamanan data dan transparansi layanan penempatan kerja, akses halaman ini memerlukan akun terverifikasi. Silakan masuk atau mendaftar terlebih dahulu.',
                         showCancelButton: true,
-                        confirmButtonText: 'Masuk',
-                        cancelButtonText: 'Daftar',
+                        confirmButtonText: 'Masuk Akun',
+                        cancelButtonText: 'Daftar Baru',
                         confirmButtonColor: '#4f46e5',
                         cancelButtonColor: '#64748b'
                     }).then((result) => {
