@@ -19,24 +19,23 @@
 
     <!-- SEO METADATA DASAR -->
     <title>Pasang Lowongan Kerja | Loker Bengkulu - Portal Resmi Ketenagakerjaan</title>
-    <meta name="description" content="Pasang dan publikasikan informasi lowongan kerja perusahaan atau usaha Anda di Bengkulu. Dapatkan kandidat terbaik secara cepat, efisien, dan terhubung via WhatsApp.">
-    <meta name="keywords" content="pasang loker bengkulu, pasang lowongan kerja bengkulu, rekrutmen bengkulu, cari karyawan bengkulu">
+    <meta name="description" content="Pasang informasi lowongan kerja perusahaan atau usaha Anda secara gratis di Loker Bengkulu. Jangkau ribuan pencari kerja potensial di Provinsi Bengkulu.">
+    <meta name="keywords" content="pasang loker bengkulu, lowongan kerja bengkulu, cari karyawan bengkulu, portal loker resmi bengkulu">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Loker Bengkulu">
     <link rel="canonical" href="https://lokerbengkulu.my.id/pasang-loker.html">
+    <meta name="theme-color" content="#1b365d">
 
     <!-- OPEN GRAPH (WHATSAPP, FACEBOOK, LINKEDIN) -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://lokerbengkulu.my.id/pasang-loker.html">
     <meta property="og:title" content="Pasang Lowongan Kerja - Loker Bengkulu">
-    <meta property="og:description" content="Publikasikan lowongan pekerjaan Anda untuk terhubung secara langsung dengan calon tenaga kerja potensial di Provinsi Bengkulu.">
-    <meta property="og:image" content="https://lokerbengkulu.my.id/assets/images/og-image.jpg">
+    <meta property="og:description" content="Publikasikan lowongan pekerjaan instansi atau usaha Anda agar ditemukan oleh ribuan pencari kerja di Provinsi Bengkulu.">
 
     <!-- TWITTER CARD -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Pasang Lowongan Kerja - Loker Bengkulu">
-    <meta name="twitter:description" content="Publikasikan lowongan pekerjaan Anda untuk terhubung secara langsung dengan calon tenaga kerja potensial di Provinsi Bengkulu.">
-    <meta name="twitter:image" content="https://lokerbengkulu.my.id/assets/images/og-image.jpg">
+    <meta name="twitter:description" content="Publikasikan lowongan pekerjaan instansi atau usaha Anda agar ditemukan oleh ribuan pencari kerja di Provinsi Bengkulu.">
 
     <!-- JSON-LD STRUCTURED DATA -->
     <script type="application/ld+json">
@@ -44,7 +43,7 @@
       "@context": "https://schema.org",
       "@type": "WebPage",
       "name": "Pasang Lowongan Kerja Loker Bengkulu",
-      "description": "Formulir publikasi lowongan kerja untuk perusahaan dan pemberi kerja di Provinsi Bengkulu.",
+      "description": "Formulir publikasi lowongan pekerjaan resmi untuk wilayah Provinsi Bengkulu.",
       "url": "https://lokerbengkulu.my.id/pasang-loker.html"
     }
     </script>
@@ -52,222 +51,205 @@
     <!-- Google Fonts & Font Awesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <style>
-        :root { 
-            --brand-50: #eef2ff;
-            --brand-100: #e0e7ff;
-            --brand-500: #4f46e5;
-            --brand-600: #4338ca;
-            --brand-700: #3730a3;
-            --brand-800: #312e81;
-            --slate-50: #f8fafc;
-            --slate-100: #f1f5f9;
-            --slate-200: #e2e8f0;
-            --slate-300: #cbd5e1;
-            --slate-400: #94a3b8;
-            --slate-500: #64748b;
-            --slate-600: #475569;
-            --slate-700: #334155;
-            --slate-800: #1e293b;
-            --slate-900: #0f172a;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
-            --shadow-card: 0 10px 25px -5px rgba(15, 23, 42, 0.06), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
-            --radius-app: 24px;
-            --radius-card: 16px;
-            --radius-input: 10px;
+        /* TEMA FORMAL PEMERINTAHAN / KORPORAT RESMI (Clean, Solid, Efisien) */
+        :root {
+            --gov-primary: #1b365d;        /* Biru Klasik Instansi */
+            --gov-primary-dark: #12243d;   /* Biru Gelap / Navy */
+            --gov-accent: #c59b27;         /* Aksen Emas / Kuning Keemasan Resmi */
+            --gov-border: #d0d7de;         /* Garis batas tipis formal */
+            --gov-bg: #f4f6f9;             /* Latar belakang bersih khas dokumen */
+            
+            --text-main: #24292e;          /* Teks utama gelap terbaca jelas */
+            --text-muted: #586069;         /* Teks sekunder */
+            
+            --radius-official: 4px;        /* Sudut kotak tajam ala dokumen resmi */
+            --shadow-official: 0 1px 3px rgba(27, 54, 93, 0.12);
         }
 
-        * { 
-            box-sizing: border-box; 
-            margin: 0; 
-            padding: 0; 
-            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
             -webkit-tap-highlight-color: transparent;
         }
 
-        body { 
-            background-color: #f8fafc; 
-            color: var(--slate-800); 
-            min-height: 100vh; 
-            display: flex; 
-            flex-direction: column; 
-            padding-bottom: 84px;
+        body {
+            background-color: var(--gov-bg);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 74px; /* Space for Bottom Nav */
         }
 
         /* Top App Bar */
-        .app-header { 
-            background: rgba(255, 255, 255, 0.9); 
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--slate-200); 
+        .app-header {
+            background: #ffffff;
+            border-bottom: 1px solid var(--gov-border);
             position: sticky;
             top: 0;
             z-index: 100;
-            padding: 0.85rem 0; 
+            padding: 0.6rem 0;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
         }
 
-        .container { 
-            max-width: 680px; 
-            margin: 0 auto; 
-            padding: 0 1.25rem; 
+        .container {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 0 1.25rem;
             width: 100%;
         }
 
-        .navbar { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-        }
-
-        .brand-logo { 
-            display: inline-flex; 
-            align-items: center; 
-            gap: 0.65rem; 
-            text-decoration: none; 
-        }
-
-        .logo-icon { 
-            background: linear-gradient(135deg, var(--brand-500), var(--brand-700)); 
-            color: white; 
-            width: 36px; 
-            height: 36px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            border-radius: 10px; 
-            font-size: 0.95rem; 
-            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.25);
-        }
-
-        .logo-text { 
-            font-size: 1.1rem; 
-            font-weight: 800; 
-            color: var(--slate-900); 
-            letter-spacing: -0.4px; 
-        }
-
-        .logo-text span { 
-            color: var(--brand-500); 
-        }
-
-        .btn-header-action { 
-            background: var(--slate-100); 
-            border: none;
-            color: var(--slate-700); 
-            width: 36px; 
-            height: 36px; 
-            border-radius: 50%; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            text-decoration: none; 
-            font-size: 0.9rem; 
-            transition: all 0.2s;
-        }
-
-        .btn-header-action:hover {
-            background: var(--slate-200);
-        }
-
-        /* Main Content */
-        main { 
-            flex: 1; 
-            padding: 1.25rem 0; 
-        }
-
-        /* App Card Structure */
-        .app-card { 
-            background: white; 
-            border-radius: var(--radius-app); 
-            padding: 1.75rem 1.5rem; 
-            box-shadow: var(--shadow-card); 
-            border: 1px solid var(--slate-200);
-        }
-
-        .card-hero {
-            background: linear-gradient(135deg, var(--brand-700), var(--brand-500));
-            border-radius: var(--radius-card);
-            padding: 1.35rem 1.25rem;
-            margin-bottom: 1.5rem;
-            color: white;
-            position: relative;
-            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.22);
-        }
-
-        .official-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            background: rgba(255, 255, 255, 0.18);
-            backdrop-filter: blur(8px);
-            color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            padding: 0.25rem 0.65rem;
-            border-radius: 20px;
-            font-size: 0.725rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.4px;
-        }
-
-        .card-hero h1 { 
-            font-size: 1.2rem; 
-            font-weight: 800; 
-            color: white; 
-            letter-spacing: -0.3px;
-            margin-bottom: 0.35rem; 
-            display: flex; 
-            align-items: center; 
-            gap: 0.5rem; 
-        }
-
-        .card-hero p { 
-            font-size: 0.825rem; 
-            color: var(--brand-100); 
-            line-height: 1.45;
-            font-weight: 500;
-        }
-
-        /* Form Sections & Dividers */
-        .form-section-title {
-            font-size: 0.75rem;
-            font-weight: 800;
-            color: var(--slate-800);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin: 1.5rem 0 1rem 0;
-            padding-bottom: 0.4rem;
-            border-bottom: 2px solid var(--slate-100);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .form-section-title i {
-            color: var(--brand-500);
-        }
-
-        .form-group { 
-            margin-bottom: 1.15rem; 
-        }
-
-        .form-group label { 
+        .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 0.75rem; 
-            font-weight: 700; 
-            color: var(--slate-700); 
-            margin-bottom: 0.4rem; 
+            height: 52px;
+        }
+
+        .brand-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            background: var(--gov-primary);
+            color: white;
+            width: 34px;
+            height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-official);
+            border: 1px solid var(--gov-primary-dark);
+            font-size: 0.85rem;
+        }
+
+        .logo-text {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--gov-primary-dark);
+            letter-spacing: -0.2px;
             text-transform: uppercase;
-            letter-spacing: 0.4px;
+        }
+
+        .logo-text span {
+            color: var(--gov-accent);
+        }
+
+        .btn-header-action {
+            background: #f1f3f5;
+            border: 1px solid var(--gov-border);
+            color: var(--gov-primary);
+            width: 34px;
+            height: 34px;
+            border-radius: var(--radius-official);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: background 0.15s;
+        }
+
+        .btn-header-action:hover {
+            background: #e2e8f0;
+        }
+
+        /* App Content */
+        main {
+            flex: 1;
+            padding: 1.25rem 0;
+        }
+
+        /* Card Structure */
+        .app-card {
+            background: #ffffff;
+            border-radius: var(--radius-official);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-official);
+            border: 1px solid var(--gov-border);
+        }
+
+        .card-hero {
+            background: #ffffff;
+            border-radius: var(--radius-official);
+            padding: 1rem;
+            margin-bottom: 1.25rem;
+            border: 1px solid var(--gov-border);
+            border-left: 3px solid var(--gov-primary);
+            position: relative;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            background: #e2f0d9;
+            color: #2e7d32;
+            border: 1px solid #c8e6c9;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .status-badge .dot {
+            width: 5px;
+            height: 5px;
+            background-color: #2e7d32;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .card-hero h1 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--gov-primary-dark);
+            letter-spacing: -0.2px;
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .card-hero h1 i {
+            color: var(--gov-primary);
+        }
+
+        .card-hero p {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+            font-weight: 500;
+        }
+
+        /* Form Elements */
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--gov-primary-dark);
+            margin-bottom: 0.3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
         }
 
         .input-wrapper {
@@ -278,92 +260,77 @@
 
         .input-icon {
             position: absolute;
-            left: 1rem;
-            color: var(--slate-400);
-            font-size: 0.9rem;
-            transition: color 0.2s;
+            left: 0.85rem;
+            color: var(--text-muted);
+            font-size: 0.8rem;
             pointer-events: none;
+            transition: color 0.15s;
         }
 
         .input-icon-textarea {
-            top: 0.9rem;
+            top: 0.75rem;
         }
 
-        .form-control { 
-            width: 100%; 
-            padding: 0.75rem 1rem 0.75rem 2.6rem; 
-            font-size: 0.875rem; 
-            font-weight: 500; 
-            color: var(--slate-900);
-            background: var(--slate-50); 
-            border: 1px solid var(--slate-200); 
-            border-radius: var(--radius-input); 
-            outline: none; 
-            transition: all 0.2s ease; 
+        .form-control {
+            width: 100%;
+            padding: 0.5rem 0.75rem 0.5rem 2.25rem;
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--text-main);
+            background: #ffffff;
+            border: 1px solid var(--gov-border);
+            border-radius: var(--radius-official);
+            outline: none;
+            transition: border-color 0.15s ease;
         }
 
         textarea.form-control {
-            padding-top: 0.75rem;
+            padding-top: 0.5rem;
             resize: vertical;
             min-height: 110px;
-            line-height: 1.5;
         }
 
         select.form-control {
             appearance: none;
-            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23586069' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
             background-repeat: no-repeat;
-            background-position: right 1rem center;
-            background-size: 1.1rem;
-            padding-right: 2.5rem;
+            background-position: right 0.75rem center;
+            background-size: 1rem;
+            padding-right: 2.25rem;
             cursor: pointer;
         }
 
-        .form-control:focus { 
-            background: white; 
-            border-color: var(--brand-500); 
-            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12); 
+        .form-control:focus {
+            border-color: var(--gov-primary);
         }
 
-        .form-control:focus ~ .input-icon {
-            color: var(--brand-500);
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
         }
 
-        .form-row { 
-            display: grid; 
-            grid-template-columns: 1fr; 
-            gap: 0; 
-        }
-
-        .char-counter {
-            font-size: 0.7rem;
-            color: var(--slate-400);
-            font-weight: 600;
-            text-transform: none;
-        }
-
-        /* Submission Button */
-        .btn-submit { 
-            width: 100%; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            gap: 0.6rem; 
-            padding: 0.85rem 1.25rem; 
-            border-radius: var(--radius-input); 
-            font-size: 0.9rem; 
-            font-weight: 700; 
-            background: var(--brand-500); 
-            color: white; 
-            border: none; 
-            cursor: pointer; 
-            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
-            transition: all 0.2s ease;
-            margin-top: 1rem;
+        /* Action Button */
+        .btn-submit {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            padding: 0.6rem 1rem;
+            border-radius: var(--radius-official);
+            font-size: 0.78rem;
+            font-weight: 700;
+            background: var(--gov-primary);
+            color: white;
+            border: 1px solid var(--gov-primary-dark);
+            cursor: pointer;
+            transition: background 0.15s ease;
+            margin-top: 0.5rem;
         }
 
         .btn-submit:hover {
-            background: var(--brand-600);
+            background: var(--gov-primary-dark);
         }
 
         .btn-submit:disabled {
@@ -372,11 +339,11 @@
         }
 
         /* Desktop Footer */
-        .desktop-footer { 
-            text-align: center; 
-            padding: 1.25rem 0; 
-            font-size: 0.775rem; 
-            color: var(--slate-500); 
+        .desktop-footer {
+            text-align: center;
+            padding: 1rem 0;
+            font-size: 0.72rem;
+            color: var(--text-muted);
             font-weight: 500;
         }
 
@@ -386,11 +353,9 @@
             bottom: 0;
             left: 0;
             right: 0;
-            height: 64px;
-            background: rgba(255, 255, 255, 0.94);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-top: 1px solid var(--slate-200);
+            height: 58px;
+            background: #ffffff;
+            border-top: 1px solid var(--gov-border);
             display: flex;
             justify-content: space-around;
             align-items: center;
@@ -403,50 +368,45 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: var(--slate-400);
+            color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: 600;
-            gap: 3px;
+            gap: 2px;
             width: 25%;
             height: 100%;
-            transition: color 0.2s;
+            transition: color 0.15s;
         }
 
         .nav-item i {
-            font-size: 1.15rem;
-            transition: transform 0.2s;
+            font-size: 1rem;
         }
 
         .nav-item.active {
-            color: var(--brand-500);
+            color: var(--gov-primary);
             font-weight: 700;
         }
 
-        .nav-item.active i {
-            transform: translateY(-2px);
-        }
-
-        @media (min-width: 640px) { 
+        @media (min-width: 640px) {
             body {
                 padding-bottom: 2rem;
             }
-            .form-row { 
-                grid-template-columns: repeat(2, 1fr); 
-                gap: 1.15rem;
-            } 
+            .form-row {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
             .bottom-nav {
                 display: none;
             }
             .app-card {
-                padding: 2.25rem;
+                padding: 1.75rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header / App Bar -->
+    <!-- Header App Bar -->
     <header class="app-header">
         <div class="container navbar">
             <a href="index.html" class="brand-logo" aria-label="Beranda Loker Bengkulu">
@@ -463,103 +423,78 @@
     <main>
         <div class="container">
             <section class="app-card">
-                <!-- Official Banner -->
+                <!-- Hero Banner -->
                 <div class="card-hero">
-                    <div class="official-badge">
-                        <i class="fa-solid fa-shield-halved"></i> Formulir Publikasi Resmi
+                    <div class="status-badge">
+                        <span class="dot"></span> Layanan Publik Resmi
                     </div>
-                    <h1><i class="fa-solid fa-building-circle-check"></i> Pasang Lowongan Kerja</h1>
-                    <p>Publikasikan informasi lowongan pekerjaan Anda untuk terhubung secara langsung dengan calon tenaga kerja potensial di Provinsi Bengkulu.</p>
+                    <h1><i class="fa-solid fa-building-user"></i> Pasang Lowongan Kerja</h1>
+                    <p>Publikasikan informasi lowongan pekerjaan instansi, perusahaan, atau usaha Anda agar dapat ditemukan oleh pencari kerja di Provinsi Bengkulu.</p>
                 </div>
 
                 <form id="lokerForm">
-                    
-                    <!-- Section 1: Profil Usaha -->
-                    <div class="form-section-title" style="margin-top: 0;">
-                        <i class="fa-solid fa-building"></i> Informasi Perusahaan / Usaha
-                    </div>
-
                     <div class="form-group">
-                        <label for="perusahaan">Nama Perusahaan / Instansi / Toko</label>
+                        <label for="posisi" class="form-label">Posisi / Jabatan Pekerjaan</label>
                         <div class="input-wrapper">
-                            <input type="text" id="perusahaan" name="perusahaan" class="form-control" placeholder="Contoh: PT Sumber Makmur / Toko Berkah Jaya" required>
-                            <i class="fa-solid fa-building input-icon"></i>
+                            <input type="text" id="posisi" name="posisi" class="form-control" placeholder="Contoh: Staff Administrasi / Kasir Toko" required>
+                            <i class="fa-solid fa-briefcase input-icon"></i>
                         </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="whatsapp">Kontak Pendaftaran (WhatsApp)</label>
-                        <div class="input-wrapper">
-                            <input type="tel" id="whatsapp" name="whatsapp" class="form-control" placeholder="Contoh: 081234567890" required>
-                            <i class="fa-brands fa-whatsapp input-icon"></i>
-                        </div>
-                    </div>
-
-                    <!-- Section 2: Detail Pekerjaan -->
-                    <div class="form-section-title">
-                        <i class="fa-solid fa-briefcase"></i> Detail Lowongan Pekerjaan
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="posisi">Posisi / Jabatan</label>
+                            <label for="perusahaan" class="form-label">Nama Perusahaan / Instansi</label>
                             <div class="input-wrapper">
-                                <input type="text" id="posisi" name="posisi" class="form-control" placeholder="Contoh: Staff Admin / Kasir" required>
-                                <i class="fa-solid fa-user-tie input-icon"></i>
+                                <input type="text" id="perusahaan" name="perusahaan" class="form-control" placeholder="Contoh: PT. Maju Bersama Bengkulu" required>
+                                <i class="fa-solid fa-building input-icon"></i>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="tipe">Tipe Pekerjaan</label>
+                            <label for="kategori" class="form-label">Kategori Pekerjaan</label>
                             <div class="input-wrapper">
-                                <select id="tipe" name="tipe" class="form-control" required>
-                                    <option value="" disabled selected>Pilih Tipe Pekerjaan</option>
-                                    <option value="Full Time">Full Time (Penuh Waktu)</option>
-                                    <option value="Part Time">Part Time (Paruh Waktu)</option>
-                                    <option value="Kontrak">Kontrak</option>
-                                    <option value="Magang (Internship)">Magang (Internship)</option>
+                                <select id="kategori" name="kategori" class="form-control" required>
+                                    <option value="" disabled selected>Pilih Kategori</option>
+                                    <option value="Administrasi & Perkantoran">Administrasi & Perkantoran</option>
+                                    <option value="Sales, Marketing & Retail">Sales, Marketing & Retail</option>
+                                    <option value="Teknisi, Driver & Lapangan">Teknisi, Driver & Lapangan</option>
+                                    <option value="F&B, Hospitality & Pariwisata">F&B, Hospitality & Pariwisata</option>
+                                    <option value="Pendidikan & Kesehatan">Pendidikan & Kesehatan</option>
+                                    <option value="Lainnya">Lainnya</option>
                                 </select>
-                                <i class="fa-solid fa-clock input-icon"></i>
+                                <i class="fa-solid fa-tags input-icon"></i>
                             </div>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="lokasi">Penempatan / Wilayah</label>
+                            <label for="lokasi" class="form-label">Lokasi / Penempatan</label>
                             <div class="input-wrapper">
-                                <input type="text" id="lokasi" name="lokasi" class="form-control" placeholder="Contoh: Ratu Samban, Kota Bengkulu" required>
+                                <input type="text" id="lokasi" name="lokasi" class="form-control" placeholder="Contoh: Kota Bengkulu / Kepahiang" required>
                                 <i class="fa-solid fa-location-dot input-icon"></i>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="gaji">Kisaran Gaji / Penawaran</label>
+                            <label for="whatsapp" class="form-label">Nomor WhatsApp HRD / Kontak</label>
                             <div class="input-wrapper">
-                                <input type="text" id="gaji" name="gaji" class="form-control" placeholder="Contoh: Rp 2.000.000 - Rp 2.500.000" required>
-                                <i class="fa-solid fa-money-bill-wave input-icon"></i>
+                                <input type="tel" id="whatsapp" name="whatsapp" class="form-control" placeholder="Contoh: 081234567890" required>
+                                <i class="fa-brands fa-whatsapp input-icon"></i>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Section 3: Persyaratan -->
-                    <div class="form-section-title">
-                        <i class="fa-solid fa-file-lines"></i> Kualifikasi & Deskripsi
-                    </div>
-
                     <div class="form-group">
-                        <label for="kualifikasi">
-                            <span>Deskripsi Pekerjaan & Persyaratan</span>
-                            <span class="char-counter" id="charCount">0/1000</span>
-                        </label>
+                        <label for="deskripsi" class="form-label">Deskripsi & Kualifikasi Loker</label>
                         <div class="input-wrapper">
-                            <textarea id="kualifikasi" name="kualifikasi" class="form-control" maxlength="1000" placeholder="Tuliskan kualifikasi pendidikan, keahlian khusus, syarat berkas, serta tata cara pengiriman lamaran..." required></textarea>
-                            <i class="fa-solid fa-file-pen input-icon input-icon-textarea"></i>
+                            <textarea id="deskripsi" name="deskripsi" class="form-control" placeholder="Tuliskan persyaratan pendidikan, pengalaman, berkas lamaran, serta batas akhir pengiriman..." required></textarea>
+                            <i class="fa-solid fa-pen-to-square input-icon input-icon-textarea"></i>
                         </div>
                     </div>
 
                     <button type="submit" class="btn-submit" id="btnSubmit">
-                        <i class="fa-solid fa-paper-plane"></i> Publikasikan Lowongan Pekerjaan
+                        <i class="fa-solid fa-paper-plane"></i> Publikasikan Lowongan Kerja
                     </button>
                 </form>
             </section>
@@ -612,8 +547,6 @@
 
         const form = document.getElementById("lokerForm");
         const btnSubmit = document.getElementById("btnSubmit");
-        const textarea = document.getElementById("kualifikasi");
-        const charCount = document.getElementById("charCount");
         let currentUser = null;
 
         // Cek Autentikasi Pengguna saat Halaman Dimuat
@@ -622,24 +555,16 @@
                 Swal.fire({
                     icon: 'warning',
                     title: 'Akses Terbatas',
-                    text: 'Anda harus masuk ke akun Anda terlebih dahulu untuk mempublikasikan lowongan kerja.',
+                    text: 'Anda harus masuk ke akun Anda terlebih dahulu untuk memasang lowongan kerja.',
                     confirmButtonText: 'Masuk Sekarang',
-                    confirmButtonColor: '#4f46e5',
+                    confirmButtonColor: '#1b365d',
                     allowOutsideClick: false
                 }).then(() => {
                     window.location.href = 'login.html';
                 });
             } else {
                 currentUser = user;
-                if (user.displayName) {
-                    document.getElementById("perusahaan").value = user.displayName;
-                }
             }
-        });
-
-        // Counter Karakter Real-time
-        textarea.addEventListener("input", () => {
-            charCount.textContent = `${textarea.value.length}/1000`;
         });
 
         function formatWhatsappNumber(number) {
@@ -653,53 +578,53 @@
         form.addEventListener("submit", async (e) => {
             e.preventDefault();
             btnSubmit.disabled = true;
-            btnSubmit.innerHTML = `<i class="fa-solid fa-circle-notch fa-spin"></i> Memproses Publikasi...`;
+            btnSubmit.innerHTML = `<i class="fa-solid fa-circle-notch fa-spin"></i> Mempublikasikan...`;
 
             try {
                 const rawWa = document.getElementById("whatsapp").value.trim();
                 const formattedWa = formatWhatsappNumber(rawWa);
-                const perusahaanVal = document.getElementById("perusahaan").value.trim();
                 const posisiVal = document.getElementById("posisi").value.trim();
+                const perusahaanVal = document.getElementById("perusahaan").value.trim();
+                const kategoriVal = document.getElementById("kategori").value;
 
-                await addDoc(collection(db, "lowongan_kerja"), {
+                await addDoc(collection(db, "loker"), {
                     uid: currentUser ? currentUser.uid : '',
-                    perusahaan: perusahaanVal,
                     posisi: posisiVal,
-                    tipe: document.getElementById("tipe").value,
+                    perusahaan: perusahaanVal,
+                    kategori: kategoriVal,
                     lokasi: document.getElementById("lokasi").value.trim(),
-                    gaji: document.getElementById("gaji").value.trim(),
                     whatsapp: formattedWa,
-                    kualifikasi: textarea.value.trim(),
+                    deskripsi: document.getElementById("deskripsi").value.trim(),
                     createdAt: new Date().toISOString()
                 });
 
-                // Pelacakan Event Pasang Loker di Google Analytics
+                // Pelacakan Event Publikasi Loker di Google Analytics
                 if (typeof gtag === 'function') {
                     gtag('event', 'pasang_loker', {
-                        'nama_perusahaan': perusahaanVal,
-                        'posisi_loker': posisiVal
+                        'posisi_pekerjaan': posisiVal,
+                        'kategori_loker': kategoriVal
                     });
                 }
 
                 Swal.fire({
                     icon: 'success',
-                    title: 'Berhasil Dipublikasikan!',
-                    text: 'Lowongan pekerjaan Anda telah terbit dan siap menerima lamaran kerja.',
-                    confirmButtonColor: '#4f46e5'
+                    title: 'Lowongan Kerja Berhasil Dipublikasikan!',
+                    text: 'Informasi loker Anda kini telah aktif dan dapat dilihat oleh para pencari kerja.',
+                    confirmButtonColor: '#1b365d'
                 }).then(() => {
                     window.location.href = 'index.html';
                 });
             } catch (error) {
-                console.error("Gagal mempublikasikan lowongan:", error);
+                console.error("Gagal mempublikasikan loker:", error);
                 Swal.fire({
                     icon: 'error',
                     title: 'Gagal Mempublikasikan',
-                    text: 'Terjadi kendala sistem. Silakan periksa koneksi Anda dan coba lagi.',
-                    confirmButtonColor: '#4f46e5'
+                    text: 'Terjadi kesalahan saat menyimpan data. Silakan coba lagi.',
+                    confirmButtonColor: '#1b365d'
                 });
             } finally {
                 btnSubmit.disabled = false;
-                btnSubmit.innerHTML = `<i class="fa-solid fa-paper-plane"></i> Publikasikan Lowongan Pekerjaan`;
+                btnSubmit.innerHTML = `<i class="fa-solid fa-paper-plane"></i> Publikasikan Lowongan Kerja`;
             }
         });
     </script>
